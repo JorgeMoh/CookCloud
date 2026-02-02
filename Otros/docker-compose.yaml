@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: TFG_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1904
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: 6341
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: TFG_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: 1904
+      UPLOAD_LIMIT: 64M
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+  

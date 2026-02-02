@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e2218be-784e-442f-add4-070502cbf2c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/controlador/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/controlador/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/modelo/Ingrediente.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/modelo/Ingrediente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/modelo/Receta.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/modelo/Receta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cookcloud/modelo/UsuarioRecetaGuardada.java" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/java/cookcloud/modelo/UsuarioRecetaGuardada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cookcloud/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/resources/cookcloud/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cookcloud/vista/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/CookCloudApp/src/main/resources/cookcloud/vista/fxml/login.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JorgeMoh&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JorgeMoh/CookCloud&quot;,
+    &quot;accountId&quot;: &quot;0095aee8-0361-4545-8943-7ac5594037a8&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="396xfihyrOEGt9jymBLE2DZ6gNq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e2218be-784e-442f-add4-070502cbf2c2" name="Changes" comment="" />
+      <created>1770030428802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770030428802</updated>
+    </task>
+    <servers />
+  </component>
+</project>

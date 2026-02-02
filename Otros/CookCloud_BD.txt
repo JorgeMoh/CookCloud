@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS cookcloud_bd;
+USE cookcloud_bd;
+
+-- TABLA USUARIO
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    passw VARCHAR(255) NOT NULL
+);
+
+-- TABLA RECETA
+CREATE TABLE receta (
+    id_receta INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    pasos TEXT NOT NULL,
+    publica BOOLEAN NOT NULL,
+    id_usuario INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
+);
+
+-- TABLA INGREDIENTE
+CREATE TABLE ingrediente (
+    id_ingrediente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    cantidad VARCHAR(50) NOT NULL,
+    id_receta INT NOT NULL,
+    FOREIGN KEY (id_receta) REFERENCES receta(id_receta) ON DELETE CASCADE
+);
+
+-- TABLA USUARIO_RECETA_GUARDADA
+CREATE TABLE usuario_receta_guardada (
+    id_usuario INT NOT NULL,
+    id_receta INT NOT NULL,
+    PRIMARY KEY (id_usuario, id_receta),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_receta) REFERENCES receta(id_receta) ON DELETE CASCADE
+);
