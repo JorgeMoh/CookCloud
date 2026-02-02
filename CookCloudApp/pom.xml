@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cookcloud</groupId>
-    <artifactId>CookCloud</artifactId>
+    <artifactId>CookCloudApp</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>CookCloud</name>
+    <name>CookCloudApp</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
