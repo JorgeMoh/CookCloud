@@ -1,0 +1,92 @@
+/* Fondo principal */
+#background {
+    -fx-background-color: linear-gradient(to bottom right, #9a9a9a, #3c3f3f);
+    -fx-padding: 20;
+}
+
+/* VBox del formulario */
+#form {
+    -fx-max-height: 250;
+    -fx-max-width: 400;
+    -fx-background-color: linear-gradient(to bottom right, #000000, #3c3f3f);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #252525;
+    -fx-border-width: 1px;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 4);
+}
+
+/* VBox del formulario al pasar por encima */
+#form:hover {
+    -fx-border-color: #32ee8b;
+    -fx-effect: dropshadow(gaussian, rgba(50,238,139,0.6), 12, 0, 0, 1);
+}
+
+/* Label */
+.label {
+    -fx-text-fill: #299f60;
+    -fx-font-size: 16px;
+}
+
+/* TextFields */
+.text-field {
+    -fx-background-color: linear-gradient(to bottom right, #3c4b4b, #2e3a3a);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #252525;
+    -fx-border-width: 0.5px;
+    -fx-padding: 5 10 5 10;
+    -fx-text-fill: #e3dacd;
+    -fx-prompt-text-fill: #32ee8baa;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* TextFields al enfocarse */
+.text-field:focused {
+    -fx-border-color: #32ee8b;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(50,238,139,0.5), 5, 0.5, 0, 0);
+}
+
+/* Botones */
+.button {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #252525;
+    -fx-border-width: 0.5px;
+    -fx-text-fill: #e3dacd;
+    -fx-background-color: linear-gradient(to bottom right, #3c4b4b, #2e3a3a);
+}
+
+/* Botones al presionar */
+.button:pressed{
+
+    -fx-border-color: #32ee8b;
+    -fx-border-width: 2px;
+    -fx-text-fill: #299f60;
+    -fx-effect: dropshadow(gaussian, rgba(50,238,139,0.5), 5, 0.5, 0, 0);
+
+}
+
+/* Clase de estilo para labels que te mueven a alguna vista */
+.enlace{
+    -fx-text-fill: #32c776;
+    -fx-font-size: 12px;
+    -fx-underline: true;
+    -fx-font-style: italic;
+}
+
+/* Clase de estilos para mensajes de error*/
+.error{
+    -fx-text-fill: #e80000;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+
+
+
+
+

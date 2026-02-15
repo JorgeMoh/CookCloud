@@ -10,8 +10,8 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("vista/fxml/login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("vista/fxml/Inicio.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 750, 550);
 
         stage.setTitle("CookCloud");
         stage.setScene(scene);

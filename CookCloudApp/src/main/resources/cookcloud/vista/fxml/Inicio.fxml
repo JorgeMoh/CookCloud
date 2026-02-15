@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.PrincipalController"
+            stylesheets="/cookcloud/vista/css/Inicio.css" fx:id="background">
+
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="2.0"/>
+    </padding>
+
+    <center>
+
+        <!--  CONTENEDOR DE LOS FORMULARIOS  -->
+        <VBox fx:id="form" alignment="CENTER_LEFT" spacing="10"/>
+
+    </center>
+
+</BorderPane>
