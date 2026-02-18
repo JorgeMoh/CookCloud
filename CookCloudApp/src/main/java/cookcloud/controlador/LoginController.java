@@ -1,7 +1,11 @@
 package cookcloud.controlador;
 
+import cookcloud.modelo.Usuario;
+import cookcloud.servicios.UserService;
+import cookcloud.utils.UtilsPass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,14 +22,25 @@ public class LoginController {
     public TextField tfUser;
     @FXML
     public PasswordField tfPass;
+    @FXML
+    public VBox vbErrorGen;
 
     private Label errUser = new Label();
     private Label errPass = new Label();
+    private Alert sesionIniciada = new Alert(Alert.AlertType.INFORMATION);
 
     private PrincipalController principalController;
+    private UserService userService = new UserService();
+
+    private Usuario userPrincipal;
 
     @FXML
     public void initialize() {
+
+        // Configuramos el alert de confirmacion
+        sesionIniciada.setTitle("Confirmación");
+        sesionIniciada.setHeaderText(null);
+        sesionIniciada.setContentText("¡Sesión iniciada!");
 
         // Configuaramos la clase de estilo de los mensajes de errores
         errUser.getStyleClass().add("error");
@@ -55,7 +70,42 @@ public class LoginController {
      */
     public void iniciarSesion(ActionEvent actionEvent) {
 
+        // Comprobamos si los campos están vacíos
         if (comprobarCampos()){
+
+            errUser.setText("Usuario o contraseña incorrectars");
+
+            // En caso de que estén rellenos comprobamos si hay un usuario con ese nombre de usuario
+            if (userService.comprobarNombreUser(tfUser.getText())){
+
+                vbErrorGen.getChildren().remove(errUser);
+
+                // Buscamos al usuario y lo guardamos
+                Usuario user = userService.buscarUsuarioPorNombre(tfUser.getText());
+
+                // Si la contraseña coincide se inicia sesión
+                if (UtilsPass.verificarPass(tfPass.getText(),user.getPassw())){
+
+                    vbErrorGen.getChildren().remove(errUser);
+
+                    sesionIniciada.showAndWait();
+                    userPrincipal=user;
+
+                // En caso de que no coincidan
+                }else{
+
+                    vbErrorGen.getChildren().remove(errUser);
+                    vbErrorGen.getChildren().add(errUser);
+
+                }
+
+            // En caso de que no existan se muestra mensaje de error
+            }else {
+
+                vbErrorGen.getChildren().remove(errUser);
+                vbErrorGen.getChildren().add(errUser);
+
+            }
 
         }
 
@@ -88,7 +138,7 @@ public class LoginController {
             vbPass.getChildren().add(errPass);
             rellenados = false;
 
-        // Si todo esta bien elimina el mensaje
+        // Si está bien elimina el mensaje
         } else vbPass.getChildren().remove(errPass);
 
         return rellenados;

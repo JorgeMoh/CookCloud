@@ -7,6 +7,7 @@
 <?import javafx.geometry.Insets?>
 
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.HBox?>
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.LoginController"
       spacing="15" alignment="CENTER">
 
@@ -25,6 +26,8 @@
         <Label text="Contraseña:"/>
         <PasswordField fx:id="tfPass" promptText="Contraseña..."/>
     </VBox>
+
+    <VBox fx:id="vbErrorGen" alignment="CENTER"/>
 
     <!--  BOTON INICIAR SESION  -->
     <Button text="Iniciar Sesion" onAction="#iniciarSesion"/>

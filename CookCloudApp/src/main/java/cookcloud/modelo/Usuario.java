@@ -12,14 +12,16 @@ public class Usuario {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
+    @Column(unique = true, nullable = false)
     private String usuario;
+    @Column(unique = true, nullable = false)
     private String email;
     private String passw;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receta> recetas = new ArrayList<>();
 
-    @ManyToMany @JoinTable(name = "Usuario_Receta_Guardada", joinColumns = @JoinColumn(name = "id_usuario"),
+    @ManyToMany @JoinTable(name = "usuario_receta_guardada", joinColumns = @JoinColumn(name = "id_usuario"),
                 inverseJoinColumns = @JoinColumn(name = "id_receta"))
     private List<Receta> recetasGuardadas = new ArrayList<>();
 
@@ -27,6 +29,10 @@ public class Usuario {
         this.usuario = usuario;
         this.email = email;
         this.passw = passw;
+    }
+
+    public Usuario() {
+
     }
 
     public long getId_usuario() {

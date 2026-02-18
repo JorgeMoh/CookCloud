@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Ingrediente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idIngrediente;
+    private Long id_ingrediente;
     private String nombre;
     private String cantidad;
 
@@ -15,12 +15,16 @@ public class Ingrediente {
     @JoinColumn(name = "id_receta", nullable = false)
     private Receta receta;
 
-    public Long getIdIngrediente() {
-        return idIngrediente;
+    public Ingrediente() {
+
     }
 
-    public void setIdIngrediente(Long idIngrediente) {
-        this.idIngrediente = idIngrediente;
+    public Long getId_ingrediente() {
+        return id_ingrediente;
+    }
+
+    public void setId_ingrediente(Long idIngrediente) {
+        this.id_ingrediente = idIngrediente;
     }
 
     public Ingrediente(String nombre, String cantidad) {

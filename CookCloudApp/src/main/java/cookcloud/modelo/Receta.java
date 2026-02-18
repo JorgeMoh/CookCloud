@@ -31,6 +31,10 @@ public class Receta {
         this.usuario = usuario;
     }
 
+    public Receta() {
+
+    }
+
     public String getTitulo() {
         return titulo;
     }

@@ -1,5 +1,6 @@
 package cookcloud.controlador;
 
+import cookcloud.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -69,5 +70,57 @@ public class PrincipalController {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Metodo que carga y enlaza los controllers entre la vista general y el Register
+     */
+    public void cargarVerification(int nVerificaion, Usuario userRegis) {
+
+        try {
+
+            // Cargamos la vista del registro
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Verification.fxml"));
+            Parent vistaVerification = loader.load();
+
+            //  Obtenemos el controlador y le pasamos este para conectarlos
+            RegisterController controller = loader.getController();
+            controller.setControlador(this);
+            // Le pasamos el codigo de verificacion para no perderlo
+            controller.setNumbVerificacion(nVerificaion);
+            // Le pasamos el usuario que estábamos intentando registrar para no perderlo
+            controller.setUserRegis(userRegis);
+
+            // Caragamos el fxml en el VBox
+            form.getChildren().clear();
+            form.getChildren().setAll(vistaVerification);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public void volverRegister(Usuario userRegis) {
+        try {
+
+            // Cargamos la vista del registro
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Register.fxml"));
+            Parent vistaRegister = loader.load();
+
+            //  Obtenemos el controlador y le pasamos este para conectarlos
+            RegisterController controller = loader.getController();
+            controller.setUserRegis(userRegis);
+            controller.setCampos();
+            controller.setControlador(this);
+
+            // Caragamos el fxml en el VBox
+            form.getChildren().clear();
+            form.getChildren().setAll(vistaRegister);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
