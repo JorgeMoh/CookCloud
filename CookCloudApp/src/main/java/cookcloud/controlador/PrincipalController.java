@@ -101,7 +101,10 @@ public class PrincipalController {
 
     }
 
-
+    /**
+     * Metodo que carga la vista de registro pero con el usuario que estábamos creando
+     * @param userRegis usuario que estábamos creando
+     */
     public void volverRegister(Usuario userRegis) {
         try {
 

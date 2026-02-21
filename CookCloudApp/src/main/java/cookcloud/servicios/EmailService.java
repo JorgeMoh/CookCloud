@@ -8,7 +8,7 @@ public class EmailService {
 
     public void enviarCorreoVerificacion(int identificador, String email){
 
-        // Datos de la sesion
+        // Datos de la sesión para enviar el correo
         final Properties prop = new Properties();
         prop.put("mail.smtp.username", "cookcloud.soporte@gmail.com"); // Correo
         prop.put("mail.smtp.password", "xocp wzqw pjvr pfpv"); // Clave
@@ -18,7 +18,7 @@ public class EmailService {
         prop.put("mail.smtp.starttls.enable", "true"); // TLS
 //        prop.put("mail.debug", "true");
 
-        // Creamos la sesion del correo
+        // Creamos la sesión del correo
         Session mailSession = Session.getInstance(prop, new jakarta.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -32,12 +32,11 @@ public class EmailService {
         // Preparamos el mensaje
         Message message = new MimeMessage(mailSession);
         message.setFrom(new InternetAddress(email)); // Seteamos el receptor
-        message.setSubject("Clave de verificación"); // Asunto
+        message.setSubject("No contestar a este correo - Clave de verificación"); // Asunto
 
         // Receptores
         InternetAddress[] toEmailAddresses = InternetAddress.parse(email);
         message.setRecipients(Message.RecipientType.TO, toEmailAddresses);
-
 
         Multipart multipart = new MimeMultipart("related");
         MimeBodyPart htmlPart = new MimeBodyPart();
@@ -53,7 +52,7 @@ public class EmailService {
                                 <h1 style="color: white"> %s </h1>
                             </div>
                         </div>
-                """.formatted("https://i.postimg.cc/26Rmfxf1/1771401829972.png",identificador);
+                """.formatted("https://i.postimg.cc/L88cW7fk/Cook-Cloud-Logo.png",identificador);
 
         htmlPart.setText(messageBody, "utf-8", "html");
 

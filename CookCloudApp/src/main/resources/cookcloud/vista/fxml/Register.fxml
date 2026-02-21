@@ -11,8 +11,7 @@
     </padding>
 
     <!--  BOTÓN DE VOLVER  -->
-    <HBox><Button text="&lt;-" onAction="#irALogin"/></HBox>
-
+    <HBox><Button text="&lt;" onAction="#irALogin" styleClass="volver"/></HBox>
 
     <!--  CAMPO USUARIO  -->
     <VBox fx:id="vbUser">

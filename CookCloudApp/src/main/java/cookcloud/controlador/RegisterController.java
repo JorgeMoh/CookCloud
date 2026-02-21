@@ -64,7 +64,7 @@ public class RegisterController {
         errorRegistro.setTitle("Error de registro");
         errorRegistro.setHeaderText(null);
         errorRegistro.setContentText("Es podible que alguien ya se haya registrado justo hace un momento" +
-                ", por favor intentelo de nuevo \n\npd: Pringao");
+                ", por favor intentelo de nuevo \n\nPD: Pringao");
 
         // Configuaramos la clase de estilo de los mensajes de errores
         errUser.getStyleClass().add("error");
@@ -132,7 +132,7 @@ public class RegisterController {
             vbUser.getChildren().add(errUser);
             valido = false;
 
-        // Si no está vacío se elimina el mensaje de error
+        // Comprobamos que el nombre de usuario no está en uso
         } else if (userService.comprobarNombreUser(tfUser.getText())) {
 
             errUser.setText("El nombre de usuario ya existe");
@@ -140,6 +140,7 @@ public class RegisterController {
             vbUser.getChildren().add(errUser);
             valido = false;
 
+        // Si esta bien se elimina el mensaje de error
         } else vbUser.getChildren().remove(errUser);
 
         // Si el campo de correo esta vacio se muestra mensaje de error
