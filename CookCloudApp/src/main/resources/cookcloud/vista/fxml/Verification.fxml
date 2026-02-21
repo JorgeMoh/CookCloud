@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.RegisterController">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.RegisterController"
+    spacing="5">
 
     <padding>
         <Insets bottom="1.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
 
-    <!--  SECCIÓN SUPERIOR  -->
-    <top>
-        <VBox>
-            <Button text="&lt;" onAction="#volver" styleClass="volver"/>
-        </VBox>
-    </top>
+    <VBox>
+        <Button text="&lt;" onAction="#volver" styleClass="volver"/>
+    </VBox>
 
-    <!--  SECCION CENTRAL  -->
-    <center>
+
+    <VBox spacing="15">
+
+        <!--  RELLENO PARA CENTRAR LOS CAMPOS  -->
+        <padding> <Insets top="35.0" bottom="45.0"/> </padding>
 
         <!--  CAMPO VERIFICAR  -->
-        <VBox fx:id="vbCode">
+        <VBox fx:id="vbCode" spacing="10">
             <Label text="Código de verificación:"/>
             <TextField promptText="Codigo..." fx:id="tfCode" alignment="CENTER"/>
         </VBox>
@@ -34,6 +35,7 @@
             <Button text="Verificar" onAction="#verificarYRegistrar"/>
         </HBox>
 
-    </center>
+    </VBox>
 
-</BorderPane>
+
+</VBox>
