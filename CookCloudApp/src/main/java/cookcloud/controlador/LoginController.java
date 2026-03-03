@@ -27,20 +27,12 @@ public class LoginController {
 
     private Label errUser = new Label();
     private Label errPass = new Label();
-    private Alert sesionIniciada = new Alert(Alert.AlertType.INFORMATION);
 
     private PrincipalController principalController;
     private UserService userService = new UserService();
 
-    private Usuario userPrincipal;
-
     @FXML
     public void initialize() {
-
-        // Configuramos el alert de confirmacion
-        sesionIniciada.setTitle("Confirmación");
-        sesionIniciada.setHeaderText(null);
-        sesionIniciada.setContentText("¡Sesión iniciada!");
 
         // Configuaramos la clase de estilo de los mensajes de errores
         errUser.getStyleClass().add("error");
@@ -88,8 +80,7 @@ public class LoginController {
 
                     vbErrorGen.getChildren().remove(errUser);
 
-                    sesionIniciada.showAndWait();
-                    userPrincipal=user;
+                    principalController.iniciarSesion(user);
 
                 // En caso de que no coincidan
                 }else{

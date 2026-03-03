@@ -126,4 +126,33 @@ public class PrincipalController {
             e.printStackTrace();
         }
     }
+
+    public void iniciarSesion(Usuario user) {
+
+        background.getChildren().clear();
+
+        try {
+
+            FXMLLoader loaderSidebar = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Sidebar.fxml"));
+            Parent vistaSidebar = loaderSidebar.load();
+
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            Parent vistaMisRecetas = loaderMisRecetas.load();
+
+            SidebarController controllerSidebar = loaderSidebar.getController();
+            controllerSidebar.setPrincipalController(this);
+            controllerSidebar.setUser(user);
+
+            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            controllerMisRecetas.setPrincipalController(this);
+            controllerMisRecetas.setUser(user);
+
+            background.setLeft(vistaSidebar);
+            background.setCenter(vistaMisRecetas);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

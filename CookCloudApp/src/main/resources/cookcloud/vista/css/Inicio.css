@@ -1,6 +1,9 @@
+* {
+    -fx-font-family: "Arial";
+}
+
 /* Fondo principal */
 #background {
-    -fx-padding: 20;
     -fx-background-color: linear-gradient(to bottom right, #5ea980, #9fd290);
 }
 
@@ -57,13 +60,19 @@
     -fx-background-color: rgba(6, 134, 82, 0.87)
 }
 
-/* Botones al presionar */
-.button:pressed{
-    -fx-border-width: 2px;
+/* Botones al poner el puntero encima */
+.button:hover{
+    /*-fx-border-width: 2px;*/
     -fx-text-fill: #e3dacd;
     -fx-border-color: #6f726f;
     -fx-background-color: #71b584;
     -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0.5), 5, 0.5, 0, 0);
+}
+
+/* Botones al presionar */
+.button:pressed{
+    -fx-border-width: 1px;
+    -fx-text-fill: #c7bfb5;
 }
 
 /* Clase de estilo para labels que te mueven a alguna vista */

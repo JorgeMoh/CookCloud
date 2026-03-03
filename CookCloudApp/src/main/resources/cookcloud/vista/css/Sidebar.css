@@ -1,0 +1,28 @@
+* {
+    -fx-font-family: "Arial";
+}
+
+.pricipal{
+    -fx-background-color: rgb(227, 227, 227);
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0 1 0 0;
+    -fx-pref-width: 400;
+
+}
+
+.button{
+    -fx-background-color: rgb(227, 227, 227);
+    -fx-text-fill: #068652;
+    -fx-border-width: 0px;
+    -fx-font-size: 30;
+    -fx-max-width: Infinity;
+}
+
+.button:hover{
+    -fx-background-color: rgb(206, 206, 206);
+    -fx-text-fill: #068652;
+    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 0, 0, 0, 0);
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0px;
+}

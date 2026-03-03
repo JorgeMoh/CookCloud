@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.SidebarController"
+      spacing="5" alignment="TOP_CENTER" stylesheets="/cookcloud/vista/css/Sidebar.css"
+      styleClass="pricipal">
+
+    <ImageView fitWidth="240" fitHeight="200">
+        <image>
+            <Image url="/cookcloud/data/CookCloud_Logo_Texto.png"/>
+        </image>
+    </ImageView>
+
+    <Separator maxWidth="375"/>
+
+        <Button text="Mis recetas" onAction="#mostrarMisRecetas"/>
+
+        <Button text="Buscar" onAction="#mostrarBuscar"/>
+
+        <Button text="Ajustes" onAction="#mostrarAjustes"/>
+
+        <Separator maxWidth="375"/>
+
+        <Button text="Cerrar Sesion" onAction="#cerrarSesion"/>
+
+
+</VBox>

@@ -12,6 +12,8 @@ public class Receta {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_receta;
     private String titulo;
+    @Column(length = 255)
+    private String resumen;
     private String pasos;
     private boolean publica;
 
@@ -24,8 +26,9 @@ public class Receta {
     @ManyToMany(mappedBy = "recetasGuardadas")
     private Set<Usuario> guardadaPor = new HashSet<>();
 
-    public Receta(String titulo, String pasos, boolean publica, Usuario usuario) {
+    public Receta(String titulo, String resumen, String pasos, boolean publica, Usuario usuario) {
         this.titulo = titulo;
+        this.resumen = resumen;
         this.pasos = pasos;
         this.publica = publica;
         this.usuario = usuario;
@@ -41,6 +44,14 @@ public class Receta {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
     }
 
     public Long getId_receta() {

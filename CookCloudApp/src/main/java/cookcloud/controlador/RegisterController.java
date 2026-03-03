@@ -84,7 +84,7 @@ public class RegisterController {
     }
 
     /**
-     * Metodo que cambia el menu de Register
+     * Metodo que cambia el menu de Register por el de login
      */
     @FXML
     public void irALogin() {

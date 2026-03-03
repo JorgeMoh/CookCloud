@@ -4,6 +4,7 @@ import cookcloud.utils.UtilsBD;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,9 +18,13 @@ public class Launcher extends javafx.application.Application {
         // Lanzamos un hilo que inicializa hibernate para evitar esperas iniciales
         new Thread(UtilsBD::getEntityManagerFactory).start();
 
+        // sacamos el ancho y alto de la pantalla
+        double anchopantalla = Screen.getPrimary().getVisualBounds().getWidth();
+        double altopantalla = Screen.getPrimary().getVisualBounds().getHeight();
+
         // Cargamos el fxml
         FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("vista/fxml/Inicio.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 750, 550);
+        Scene scene = new Scene(fxmlLoader.load(), anchopantalla*0.8,altopantalla*0.8);
 
         stage.setTitle("CookCloud"); // Ponemos un titulo al marco
         stage.getIcons().add(new Image("/cookcloud/data/CookCloud_Logo.png")); // Añadimos el logo al marco
