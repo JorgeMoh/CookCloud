@@ -2,13 +2,7 @@
     -fx-font-family: "Arial";
 }
 
-.btAñadir {
-    -fx-background-color: rgb(227, 227, 227);
-    -fx-text-fill: #068652;
-    -fx-font-size: 15;
-}
-
-.btMisrecetas{
+.button{
     -fx-background-color: rgb(227, 227, 227);
     -fx-text-fill: #068652;
     -fx-background-radius: 0;
@@ -21,7 +15,7 @@
     -fx-border-width: 0 1 0 0;
 }
 
-.btMisrecetas:hover{
+.button:hover{
     -fx-background-color: rgb(206, 206, 206);
     -fx-text-fill: #068652;
     -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 0, 0, 0, 0);
@@ -30,26 +24,15 @@
     -fx-border-width: 0px;
 }
 
-
-.scroll {
-    -fx-background-color: transparent;
-    -fx-control-inner-background: transparent;
-    -fx-padding: 0;
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
-}
-
-.scroll .viewport {
-    -fx-background-color: transparent;
-}
-
-.flowPane {
-    -fx-background-color: transparent;
-    -fx-hgap: 10;
-    -fx-vgap: 10;
-    -fx-padding: 10;
-}
-
-.vbBotonAñadir {
-    -fx-pref-height: 100;
+.btSelect{
+    -fx-background-color: rgb(206, 206, 206);
+    -fx-text-fill: #068652;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-size: 30;
+    -fx-max-width: Infinity;
+    -fx-pref-width: 50%;
+    -fx-padding: 5 0;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0 1 0 0;
 }

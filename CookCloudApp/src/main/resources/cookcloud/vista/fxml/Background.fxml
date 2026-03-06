@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.PrincipalController"
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.BackgroundController"
             stylesheets="/cookcloud/vista/css/Inicio.css" fx:id="background">
 
     <center>

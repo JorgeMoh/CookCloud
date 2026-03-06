@@ -17,11 +17,11 @@
 
     <Separator maxWidth="375"/>
 
-        <Button text="Mis recetas" onAction="#mostrarMisRecetas"/>
+        <Button text="Mis recetas" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
 
-        <Button text="Buscar" onAction="#mostrarBuscar"/>
+        <Button text="Buscar" onAction="#mostrarBuscar" fx:id="btBuscar"/>
 
-        <Button text="Ajustes" onAction="#mostrarAjustes"/>
+        <Button text="Ajustes" onAction="#mostrarAjustes" fx:id="btAjustes"/>
 
         <Separator maxWidth="375"/>
 

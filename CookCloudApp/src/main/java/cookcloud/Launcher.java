@@ -23,7 +23,7 @@ public class Launcher extends javafx.application.Application {
         double altopantalla = Screen.getPrimary().getVisualBounds().getHeight();
 
         // Cargamos el fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("vista/fxml/Inicio.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("vista/fxml/Background.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), anchopantalla*0.8,altopantalla*0.8);
 
         stage.setTitle("CookCloud"); // Ponemos un titulo al marco

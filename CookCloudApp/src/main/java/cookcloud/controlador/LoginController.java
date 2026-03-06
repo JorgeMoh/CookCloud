@@ -5,7 +5,6 @@ import cookcloud.servicios.UserService;
 import cookcloud.utils.UtilsPass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -28,7 +27,7 @@ public class LoginController {
     private Label errUser = new Label();
     private Label errPass = new Label();
 
-    private PrincipalController principalController;
+    private BackgroundController backgroundController;
     private UserService userService = new UserService();
 
     @FXML
@@ -44,8 +43,8 @@ public class LoginController {
      * Sincroniza el controlador principal con este
      * @param principalController variable del controlador principal
      */
-    public void setControladorPrincipal(PrincipalController principalController) {
-        this.principalController = principalController;
+    public void setControladorPrincipal(BackgroundController principalController) {
+        this.backgroundController = principalController;
     }
 
     /**
@@ -53,7 +52,7 @@ public class LoginController {
      * @param mouseEvent
      */
     public void irARegistro(MouseEvent mouseEvent) {
-        principalController.cargarRegister();
+        backgroundController.cargarRegister();
     }
 
     /**
@@ -80,7 +79,7 @@ public class LoginController {
 
                     vbErrorGen.getChildren().remove(errUser);
 
-                    principalController.iniciarSesion(user);
+                    backgroundController.iniciarSesion(user);
 
                 // En caso de que no coincidan
                 }else{

@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class PrincipalController {
+public class BackgroundController {
 
     @FXML
     public BorderPane background;
@@ -144,7 +144,7 @@ public class PrincipalController {
             controllerSidebar.setUser(user);
 
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
-            controllerMisRecetas.setPrincipalController(this);
+            controllerMisRecetas.setBackgroundController(this);
             controllerMisRecetas.setUser(user);
 
             background.setLeft(vistaSidebar);
@@ -155,4 +155,24 @@ public class PrincipalController {
         }
 
     }
+
+    public void cargarMisRecetas(Usuario user) {
+
+        try {
+
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            Parent vistaMisRecetas = loaderMisRecetas.load();
+
+            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            controllerMisRecetas.setBackgroundController(this);
+            controllerMisRecetas.setUser(user);
+
+            background.setCenter(vistaMisRecetas);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

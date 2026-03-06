@@ -6,28 +6,17 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="bpLayaut"
             fx:controller="cookcloud.controlador.MisRecetasController" stylesheets="/cookcloud/vista/css/MisRecetas.css">
 
     <top>
         <HBox spacing="0" maxWidth="Infinity" prefWidth="Infinity">
-            <Button text="Mis Recetas" onAction="#cargarMisRecetas" styleClass="btMisrecetas"
-                    HBox.hgrow="ALWAYS" maxWidth="Infinity" />
-            <Button text="Recetas Guardadas" onAction="#cargarRecetasGuardadas" styleClass="btMisrecetas"
-                    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button text="Mis Recetas" onAction="#cargarMisRecetas" styleClass="btSelect"
+                    HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btMisRecetas"/>
+            <Button text="Recetas Guardadas" onAction="#cargarRecetasGuardadas"
+                    HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btGuardados"/>
         </HBox>
     </top>
-
-    <center>
-        <ScrollPane styleClass="scroll">
-            <FlowPane fx:id="fpRecetas" styleClass="flowPane"/>
-        </ScrollPane>
-    </center>
-
-    <bottom>
-        <VBox alignment="CENTER" styleClass="vbBotonAñadir">
-            <Button text="+" styleClass="btAñadir"/>
-        </VBox>
-    </bottom>
 
 </BorderPane>

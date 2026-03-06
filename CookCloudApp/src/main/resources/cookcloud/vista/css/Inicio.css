@@ -23,7 +23,7 @@
 /* Labels */
 .label {
     -fx-font-weight: bold;
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
     -fx-text-fill: #068652;
 }
 
@@ -52,9 +52,10 @@
 /* Botones */
 .button {
     -fx-font-weight: bold;
+    -fx-font-size: 14;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
-    -fx-border-width: 0.5px;
+    -fx-border-width: 1px;
     -fx-border-color: #6f726f;
     -fx-text-fill: #e3dacd;
     -fx-background-color: rgba(6, 134, 82, 0.87)
