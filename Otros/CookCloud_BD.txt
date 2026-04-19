@@ -13,6 +13,7 @@ CREATE TABLE usuario (
 CREATE TABLE receta (
     id_receta INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
+    resumen VARCHAR(255) NOT NULL,
     pasos TEXT NOT NULL,
     publica BOOLEAN NOT NULL,
     id_usuario INT NOT NULL,

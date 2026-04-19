@@ -2,7 +2,9 @@ package cookcloud.modelo;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,12 +23,13 @@ public class Receta {
     private Usuario usuario;
 
     @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Ingrediente> ingredientes = new HashSet<>();
+    private List<Ingrediente> ingredientes = new ArrayList<>();
 
     @ManyToMany(mappedBy = "recetasGuardadas")
     private Set<Usuario> guardadaPor = new HashSet<>();
 
-    public Receta(String titulo, String resumen, String pasos, boolean publica, Usuario usuario) {
+    public Receta(String titulo, String resumen,
+                  String pasos, boolean publica, Usuario usuario) {
         this.titulo = titulo;
         this.resumen = resumen;
         this.pasos = pasos;
@@ -86,11 +89,11 @@ public class Receta {
         this.usuario = usuario;
     }
 
-    public Set<Ingrediente> getIngredientes() {
+    public List<Ingrediente> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(Set<Ingrediente> ingredientes) {
+    public void setIngredientes(List<Ingrediente> ingredientes) {
         this.ingredientes = ingredientes;
     }
 
@@ -101,4 +104,15 @@ public class Receta {
     public void setGuardadaPor(Set<Usuario> guardadaPor) {
         this.guardadaPor = guardadaPor;
     }
+
+    public void addIngrediente(Ingrediente ingrediente) {
+        ingredientes.add(ingrediente);
+        ingrediente.setReceta(this);
+    }
+
+    public void removeIngrediente(Ingrediente ingrediente) {
+        ingredientes.remove(ingrediente);
+        ingrediente.setReceta(null);
+    }
+
 }

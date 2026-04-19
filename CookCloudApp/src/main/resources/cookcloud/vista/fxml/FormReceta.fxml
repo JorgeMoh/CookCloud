@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane stylesheets="/cookcloud/vista/css/FormReceta.css" xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.FormRecetaController"
+      styleClass="scroll" fx:id="scroll" fitToWidth="true">
+
+    <VBox spacing="10" styleClass="vbReceta" fx:id="vbReceta">
+
+        <!--  BOTÓN DE VOLVER  -->
+        <HBox prefWidth="150.0"><Button styleClass="volver" text="&lt;" onAction="#volver"/></HBox>
+
+        <VBox spacing="10">
+
+            <HBox spacing="20">
+
+                <!--  TITULO  -->
+                <VBox fx:id="vbTitulo">
+                    <TextField promptText="Titulo..." fx:id="tfTitulo" maxWidth="Infinity" styleClass="titulo"/>
+                </VBox>
+
+                <!--  ESTADO RECETA  -->
+                <HBox alignment="CENTER">
+                    <ToggleButton text="Publica" fx:id="tbPublica"/>
+                </HBox>
+
+            </HBox>
+
+            <!--  RESUMEN  -->
+            <VBox fx:id="vbResumen">
+                <TextArea prefRowCount="2" promptText="Breve descripción..." fx:id="taResumen"/>
+            </VBox>
+
+            <!--  INGREDIENTES  -->
+            <VBox fx:id="vbIngredientes" spacing="8">
+
+                <HBox spacing="5" styleClass="hbIngre">
+                    <TextField promptText="Ingrediente..." fx:id="tfPrimerIngrediente"/>
+                    <TextField promptText="Cantidad..." maxWidth="100" fx:id="tfPrimeraCantidad"/>
+                    <Button text="+" onAction="#agregarCampIngred" fx:id="btAgregar"/>
+                </HBox>
+
+            </VBox>
+
+            <!--  PASOS  -->
+            <VBox fx:id="vbPasos">
+                <TextArea promptText="Pasos..." fx:id="taPasos"/>
+            </VBox>
+
+
+            <VBox><Button text="Crear" onAction="#crearReceta"/></VBox>
+
+        </VBox>
+    </VBox>
+
+
+</ScrollPane>

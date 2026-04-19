@@ -45,7 +45,7 @@ public class RegisterController {
     private Alert usuarioCreado = new Alert(Alert.AlertType.INFORMATION);
     private Alert errorRegistro = new Alert(Alert.AlertType.ERROR);
 
-    private BackgroundController backgroundController;
+    private GeneralController generalController;
     private UserService userService = new UserService();
     private EmailService emailService = new EmailService();
     private Usuario userRegis;
@@ -77,10 +77,10 @@ public class RegisterController {
 
     /**
      * Sincroniza el controlador principal con este
-     * @param backgroundController variable del controlador principal
+     * @param generalController variable del controlador principal
      */
-    public void setControlador(BackgroundController backgroundController) {
-        this.backgroundController = backgroundController;
+    public void setControlador(GeneralController generalController) {
+        this.generalController = generalController;
     }
 
     /**
@@ -88,7 +88,7 @@ public class RegisterController {
      */
     @FXML
     public void irALogin() {
-        backgroundController.cargarLogin();
+        generalController.cargarLogin();
     }
 
     /**
@@ -110,7 +110,7 @@ public class RegisterController {
             // Enviamos un correo
             emailService.enviarCorreoVerificacion(nVerificaion,tfEmail.getText());
             // Pasamos a la vista de verificación de código
-            backgroundController.cargarVerification(nVerificaion,userRegis);
+            generalController.cargarVerification(nVerificaion,userRegis);
 
         }
 
@@ -217,7 +217,7 @@ public class RegisterController {
      * @param actionEvent
      */
     public void volver(ActionEvent actionEvent) {
-        backgroundController.volverRegister(userRegis);
+        generalController.volverRegister(userRegis);
     }
 
     /**
@@ -241,7 +241,7 @@ public class RegisterController {
 
             } else {
                 errorRegistro.showAndWait();
-                backgroundController.volverRegister(userRegis);
+                generalController.volverRegister(userRegis);
             }
 
         }

@@ -2,37 +2,64 @@
     -fx-font-family: "Arial";
 }
 
+/* Botones */
 .button{
-    -fx-background-color: rgb(227, 227, 227);
-    -fx-text-fill: #068652;
+    -fx-background-color: Transparent;
+    -fx-text-fill: #545454;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
     -fx-font-size: 30;
+    -fx-max-height: Infinity;
     -fx-max-width: Infinity;
     -fx-pref-width: 50%;
-    -fx-padding: 5 0;
-    -fx-border-color: #cccccc;
-    -fx-border-width: 0 1 0 0;
+    -fx-border-width: 0;
 }
 
 .button:hover{
-    -fx-background-color: rgb(206, 206, 206);
-    -fx-text-fill: #068652;
-    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 0, 0, 0, 0);
+    -fx-background-color: #efefef;
+    -fx-text-fill: #068551;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
-    -fx-border-width: 0px;
+    -fx-border-width: 0 0 6 0;
+    -fx-border-color: #068551;
+}
+
+.button:pressed{
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 5, 0.5, 0, 0);
 }
 
 .btSelect{
-    -fx-background-color: rgb(206, 206, 206);
-    -fx-text-fill: #068652;
+    /*-fx-background-color: #efefef;*/
+    -fx-text-fill: #068551;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
-    -fx-font-size: 30;
-    -fx-max-width: Infinity;
-    -fx-pref-width: 50%;
-    -fx-padding: 5 0;
-    -fx-border-color: #cccccc;
-    -fx-border-width: 0 1 0 0;
+    -fx-border-width: 0 0 6 0;
+    -fx-border-color: #068551;
+}
+
+/* Scroll */
+.scroll {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.flowPane {
+    -fx-background-color: transparent;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 20;
+    -fx-pref-width: infinity;
+    -fx-max-width: infinity;
+}
+
+.hbBotones {
+    -fx-background-color: #ffffff;
 }

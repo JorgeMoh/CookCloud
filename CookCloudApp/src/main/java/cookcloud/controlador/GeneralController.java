@@ -9,12 +9,14 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class BackgroundController {
+public class GeneralController {
 
     @FXML
     public BorderPane background;
     @FXML
     public VBox form;
+
+    Usuario usuario;
 
     @FXML
     public void initialize() {
@@ -131,6 +133,8 @@ public class BackgroundController {
 
         background.getChildren().clear();
 
+        usuario = user;
+
         try {
 
             FXMLLoader loaderSidebar = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Sidebar.fxml"));
@@ -141,11 +145,10 @@ public class BackgroundController {
 
             SidebarController controllerSidebar = loaderSidebar.getController();
             controllerSidebar.setPrincipalController(this);
-            controllerSidebar.setUser(user);
 
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
-            controllerMisRecetas.setBackgroundController(this);
-            controllerMisRecetas.setUser(user);
+            controllerMisRecetas.setUser(usuario);
+            controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
             background.setLeft(vistaSidebar);
             background.setCenter(vistaMisRecetas);
@@ -156,7 +159,7 @@ public class BackgroundController {
 
     }
 
-    public void cargarMisRecetas(Usuario user) {
+    public void cargarMisRecetas() {
 
         try {
 
@@ -164,8 +167,8 @@ public class BackgroundController {
             Parent vistaMisRecetas = loaderMisRecetas.load();
 
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
-            controllerMisRecetas.setBackgroundController(this);
-            controllerMisRecetas.setUser(user);
+            controllerMisRecetas.setUser(usuario);
+            controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
             background.setCenter(vistaMisRecetas);
 
@@ -175,4 +178,26 @@ public class BackgroundController {
 
     }
 
+    public void cargarFormReceta() {
+
+        try {
+
+            FXMLLoader loaderFormReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormReceta.fxml"));
+            Parent vistaFormReceta = loaderFormReceta.load();
+
+            FormRecetaController controllerFormReceta = loaderFormReceta.getController();
+            controllerFormReceta.setBackgroundController(this);
+            controllerFormReceta.setUser(usuario);
+
+            background.setCenter(vistaFormReceta);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }

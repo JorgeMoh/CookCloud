@@ -1,0 +1,49 @@
+.scroll{
+    -fx-background-color: Transparent;
+    -fx-padding: 50 50 0 50;
+}
+
+.scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.vbReceta {
+    -fx-padding: 30;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20 20 0 0;
+    -fx-border-radius: 20 20 0 0;
+}
+
+.hbIngre {
+    -fx-alignment: center_left;
+}
+
+/*.vbForm{*/
+/*    !*-fx-max-height: Infinity;*!*/
+/*    -fx-background-color: rgb(168, 20, 20);*/
+/*    */
+/*    */
+
+/*}*/
+
+/*.vbForm2 {*/
+/*    -fx-max-width: Infinity;*/
+/*    -fx-pref-width: Infinity;*/
+/*    -fx-border-radius: 20 20 0 0;*/
+/*    -fx-background-radius: 20 20 0 0;*/
+/*    -fx-padding: 15;*/
+/*    -fx-background-color: rgb(15, 86, 238);*/
+/*}*/
+
+/*.vbForm3 {*/
+/*    -fx-max-height: Infinity;*/
+/*    -fx-pref-height: Infinity;*/
+/*}*/
+
+
+
+

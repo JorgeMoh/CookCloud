@@ -7,7 +7,7 @@
 <?import javafx.scene.image.Image?>
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.SidebarController"
       spacing="5" alignment="TOP_CENTER" stylesheets="/cookcloud/vista/css/Sidebar.css"
-      styleClass="pricipal">
+      styleClass="principal">
 
     <ImageView fitWidth="240" fitHeight="200">
         <image>
@@ -15,15 +15,15 @@
         </image>
     </ImageView>
 
-    <Separator maxWidth="375"/>
+    <Separator/>
 
         <Button text="Mis recetas" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
 
-        <Button text="Buscar" onAction="#mostrarBuscar" fx:id="btBuscar"/>
+        <Button text="Explorar" onAction="#mostrarBuscar" fx:id="btBuscar"/>
 
         <Button text="Ajustes" onAction="#mostrarAjustes" fx:id="btAjustes"/>
 
-        <Separator maxWidth="375"/>
+        <Separator/>
 
         <Button text="Cerrar Sesion" onAction="#cerrarSesion"/>
 

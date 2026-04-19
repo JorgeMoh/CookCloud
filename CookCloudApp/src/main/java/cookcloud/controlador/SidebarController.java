@@ -9,12 +9,11 @@ public class SidebarController {
     public Button btMisrecetas;
     public Button btBuscar;
     public Button btAjustes;
-    private BackgroundController principalController;
-    private Usuario user;
+    private GeneralController principalController;
 
     public void mostrarMisRecetas() {
         seleccionarBoton(btMisrecetas);
-        principalController.cargarMisRecetas(user);
+        principalController.cargarMisRecetas();
     }
 
     public void mostrarBuscar(ActionEvent actionEvent) {
@@ -28,12 +27,8 @@ public class SidebarController {
     public void cerrarSesion(ActionEvent actionEvent) {
     }
 
-    public void setPrincipalController(BackgroundController principalController) {
+    public void setPrincipalController(GeneralController principalController) {
         this.principalController = principalController;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
     }
 
     private void seleccionarBoton(Button activo) {

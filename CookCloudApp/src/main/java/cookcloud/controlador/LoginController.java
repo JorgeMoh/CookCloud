@@ -27,7 +27,7 @@ public class LoginController {
     private Label errUser = new Label();
     private Label errPass = new Label();
 
-    private BackgroundController backgroundController;
+    private GeneralController generalController;
     private UserService userService = new UserService();
 
     @FXML
@@ -43,8 +43,8 @@ public class LoginController {
      * Sincroniza el controlador principal con este
      * @param principalController variable del controlador principal
      */
-    public void setControladorPrincipal(BackgroundController principalController) {
-        this.backgroundController = principalController;
+    public void setControladorPrincipal(GeneralController principalController) {
+        this.generalController = principalController;
     }
 
     /**
@@ -52,7 +52,7 @@ public class LoginController {
      * @param mouseEvent
      */
     public void irARegistro(MouseEvent mouseEvent) {
-        backgroundController.cargarRegister();
+        generalController.cargarRegister();
     }
 
     /**
@@ -79,7 +79,7 @@ public class LoginController {
 
                     vbErrorGen.getChildren().remove(errUser);
 
-                    backgroundController.iniciarSesion(user);
+                    generalController.iniciarSesion(user);
 
                 // En caso de que no coincidan
                 }else{

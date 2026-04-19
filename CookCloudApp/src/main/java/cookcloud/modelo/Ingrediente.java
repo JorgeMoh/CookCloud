@@ -23,13 +23,13 @@ public class Ingrediente {
         return id_ingrediente;
     }
 
-    public void setId_ingrediente(Long idIngrediente) {
-        this.id_ingrediente = idIngrediente;
-    }
-
     public Ingrediente(String nombre, String cantidad) {
         this.nombre = nombre;
         this.cantidad = cantidad;
+    }
+
+    public void setId_ingrediente(Long idIngrediente) {
+        this.id_ingrediente = idIngrediente;
     }
 
     public String getNombre() {

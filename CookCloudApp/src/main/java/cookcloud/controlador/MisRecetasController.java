@@ -17,41 +17,56 @@ public class MisRecetasController {
     @FXML
     public Button btGuardados;
 
-    private BackgroundController backgroundController;
+    private GeneralController generalController;
     private Usuario user;
 
-    @FXML
-    public void initialize() {
-        cargarMisRecetas();
-    }
-
-    public void cargarMisRecetas() {
+    public void cargarRecetasCreadas() {
 
         seleccionarBoton(btMisRecetas);
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecetasPropias.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecetasCreadas.fxml"));
             Parent vistaLogin = loader.load();
 
-            RecetasPropiasController controller = loader.getController();
+            RecetasCreadasController controller = loader.getController();
             controller.setControlador(this);
+            controller.setControladorBackground(generalController);
+            controller.setUsuario(user);
+
 
             bpLayaut.setCenter(vistaLogin);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public void cargarRecetasGuardadas(ActionEvent actionEvent) {
 
         seleccionarBoton(btGuardados);
 
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecetasGuardadas.fxml"));
+            Parent vistaLogin = loader.load();
+
+            RecetasGuardadasController controller = loader.getController();
+            controller.setControlador(this);
+            controller.setUser(user);
+
+            bpLayaut.setCenter(vistaLogin);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void setBackgroundController(BackgroundController backgroundController) {
-        this.backgroundController = backgroundController;
+    public void setControllerYCargarMisRecetas(GeneralController generalController) {
+        this.generalController = generalController;
+        cargarRecetasCreadas();
     }
 
     public void setUser(Usuario user) {

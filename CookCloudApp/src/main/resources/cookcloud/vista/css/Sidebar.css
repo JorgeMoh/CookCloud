@@ -2,33 +2,47 @@
     -fx-font-family: "Arial";
 }
 
-.pricipal{
-    -fx-background-color: rgb(227, 227, 227);
-    -fx-border-color: #cccccc;
-    -fx-border-width: 0 1 0 0;
-    -fx-pref-width: 300;
-
-}
-
+/* Botones */
 .button{
-    -fx-background-color: rgb(227, 227, 227);
-    -fx-text-fill: #068652;
-    -fx-border-width: 0px;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #545454;
+    -fx-border-width: 0;
     -fx-font-size: 30;
     -fx-max-width: Infinity;
+
 }
 
 .button:hover{
-    -fx-background-color: rgb(206, 206, 206);
+    -fx-background-color: #efefef;
     -fx-text-fill: #068652;
-    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 0, 0, 0, 0);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
-    -fx-border-width: 0px;
+    -fx-border-width: 0 0 0 6;
+    -fx-border-color: #068551;
+}
+
+.button:pressed{
+    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0), 5, 0.5, 0, 0);
 }
 
 .btSelect{
-    -fx-background-color: rgb(206, 206, 206);
+    -fx-border-width: 0 0 0 6;
+    -fx-background-color: #efefef;
+    -fx-text-fill: #068652;
+    -fx-border-color: #068551;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
+}
+
+/* Barras separadoras */
+.separator{
+    -fx-max-width: 280;
+}
+
+/* Cuerpo del Sidebar */
+.principal{
+    -fx-background-color: #ffffff;
+    -fx-pref-width: 300;
+    -fx-border-width: 0 1.5 0 0;
+    -fx-border-color: #efefef;
 }

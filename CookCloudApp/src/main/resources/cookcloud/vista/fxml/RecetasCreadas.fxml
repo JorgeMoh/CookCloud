@@ -8,18 +8,18 @@
 
 <?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cookcloud.controlador.RecetasPropiasController" stylesheets="/cookcloud/vista/css/RecetasPropias.css">
+            fx:controller="cookcloud.controlador.RecetasCreadasController" stylesheets="/cookcloud/vista/css/RecetasCreadas.css">
 
     <center>
-        <ScrollPane styleClass="scroll">
-            <FlowPane fx:id="fpRecetas" styleClass="flowPane"/>
+        <ScrollPane styleClass="scroll" fitToWidth="true">
+            <FlowPane fx:id="fpRecetas" styleClass="flowPane" alignment="BASELINE_CENTER"/>
         </ScrollPane>
     </center>
 
     <bottom>
         <VBox alignment="CENTER" styleClass="vbBotonAñadir">
             <padding> <Insets bottom="10.0" top="2.0"/> </padding>
-            <Button text="+" styleClass="btAñadir"/>
+            <Button text="+" styleClass="btAñadir" onAction="#cargarVistaFormReceta"/>
         </VBox>
     </bottom>
 

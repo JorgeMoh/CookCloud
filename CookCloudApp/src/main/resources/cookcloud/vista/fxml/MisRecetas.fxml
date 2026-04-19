@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="bpLayaut"
             fx:controller="cookcloud.controlador.MisRecetasController" stylesheets="/cookcloud/vista/css/MisRecetas.css">
 
     <top>
-        <HBox spacing="0" maxWidth="Infinity" prefWidth="Infinity">
-            <Button text="Mis Recetas" onAction="#cargarMisRecetas" styleClass="btSelect"
+        <HBox maxWidth="Infinity" prefWidth="Infinity" styleClass="hbBotones">
+            <Button text="Mis Recetas" onAction="#cargarRecetasCreadas" styleClass="btSelect"
                     HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btMisRecetas"/>
             <Button text="Recetas Guardadas" onAction="#cargarRecetasGuardadas"
                     HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btGuardados"/>

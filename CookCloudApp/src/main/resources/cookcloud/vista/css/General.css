@@ -1,0 +1,144 @@
+* {
+    -fx-font-family: "Arial";
+}
+
+/* Fondo principal */
+#background {
+    -fx-background-color: #448163
+}
+
+/* VBox del formulario */
+#form {
+    -fx-max-height: 250;
+    -fx-max-width: 400;
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-border-width: 0;
+    -fx-padding: 15 10 10 10;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #747c76;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 10, 0, 0, 4);
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b6b6b;
+}
+
+/* Campos */
+.text-field {
+    -fx-font-size: 18px;
+    -fx-padding: 10 5 5 5;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-color: #545454;
+    -fx-background-color: #ffffff;
+}
+
+.text-field:focused {
+    -fx-border-color: #068551;
+}
+
+/* Areas de texto */
+.text-area{
+    -fx-max-width: Infinity;
+    -fx-font-size: 14px;
+    -fx-padding: 10 5 5 5;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-color: #545454;
+    -fx-background-color: #ffffff;
+}
+
+.text-area:focused {
+    -fx-border-color: #068551;
+}
+
+/* Botones */
+.button {
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-border-width: 1px;
+    -fx-border-color: #6f726f;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #068551;
+}
+
+.button:hover{
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #6f726f;
+    -fx-background-color: #468060;
+}
+
+.button:pressed{
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(47, 47, 47, 0.5), 5, 0.5, 0, 0);
+    -fx-text-fill: #c7bfb5;
+}
+
+/* Labels con función al clicar */
+.enlace{
+    -fx-font-size: 12px;
+    -fx-underline: true;
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-text-fill: #068551;
+}
+
+/* Tirulos */
+.titulo{
+    -fx-font-size: 40px;
+}
+
+/* Mensajes de error */
+.error{
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+    -fx-font-weight: lighter;
+    -fx-text-fill: #e80000;
+}
+
+/* Clase de estilos para votones que vuelven a la vista anterior */
+.volver {
+    -fx-border-width: 1px;
+    -fx-text-fill: #068652;
+    -fx-background-color: rgba(190, 192, 191, 0);
+    -fx-border-color: rgba(58, 58, 58, 0.38);
+}
+
+.pruebas{
+    -fx-background-color: #981f1f;
+}
+
+.tarjetaReceta{
+
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-border-width: 0;
+    -fx-padding: 15 10 10 10;
+    -fx-border-color: #747c76;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 10, 0, 0, 4);
+    -fx-spacing: 5;
+    -fx-pref-width: 350px;
+    -fx-max-width: 350px;
+
+
+}
+
+.tituloTarjetaReceta {
+    -fx-text-fill: #545454;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.resumenTarjetaReceta{
+    -fx-font-size: 15px;
+    -fx-font-style: italic;
+    -fx-text-fill: #545454;
+}

@@ -1,0 +1,14 @@
+.button {
+    -fx-background-color: rgb(227, 227, 227);
+    -fx-text-fill: #068652;
+    -fx-font-size: 20;
+    -fx-max-width: 35;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+
+.button:hover {
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-border-width: 0;
+}
