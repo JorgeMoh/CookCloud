@@ -24,7 +24,7 @@
 
                 <!--  ESTADO RECETA  -->
                 <HBox alignment="CENTER">
-                    <ToggleButton text="Publica" fx:id="tbPublica"/>
+                    <ToggleButton text="Privada" fx:id="tbPublica" onMouseClicked="#cambiarEstado"/>
                 </HBox>
 
             </HBox>
@@ -50,7 +50,7 @@
                 <TextArea promptText="Pasos..." fx:id="taPasos"/>
             </VBox>
 
-
+            <!--  BOTON DE CREAR  -->
             <VBox><Button text="Crear" onAction="#crearReceta"/></VBox>
 
         </VBox>

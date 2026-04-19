@@ -6,10 +6,13 @@
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="bpLayaut"
             fx:controller="cookcloud.controlador.MisRecetasController" stylesheets="/cookcloud/vista/css/MisRecetas.css">
 
+    <!--  SECCIÓN SUPERIOR  -->
     <top>
         <HBox maxWidth="Infinity" prefWidth="Infinity" styleClass="hbBotones">
+            <!--  BOTÓN DE MIS RECETAD  -->
             <Button text="Mis Recetas" onAction="#cargarRecetasCreadas" styleClass="btSelect"
                     HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btMisRecetas"/>
+            <!--  BOTÓN DE RECETAS GUARDADAS  -->
             <Button text="Recetas Guardadas" onAction="#cargarRecetasGuardadas"
                     HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="btGuardados"/>
         </HBox>

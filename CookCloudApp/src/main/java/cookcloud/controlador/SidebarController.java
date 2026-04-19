@@ -1,6 +1,5 @@
 package cookcloud.controlador;
 
-import cookcloud.modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
@@ -11,32 +10,49 @@ public class SidebarController {
     public Button btAjustes;
     private GeneralController principalController;
 
+    /**
+     * Metodo que muestra la vista de mis recetas
+     */
     public void mostrarMisRecetas() {
-        seleccionarBoton(btMisrecetas);
-        principalController.cargarMisRecetas();
+        seleccionarBoton(btMisrecetas); // selecciona el botón
+        principalController.cargarMisRecetas(); // cargamos la vista
     }
 
-    public void mostrarBuscar(ActionEvent actionEvent) {
-        seleccionarBoton(btBuscar);
+    /**
+     * Metodo que carga la vista del explorador de recetas
+     */
+    public void mostrarExplorador() {
+        seleccionarBoton(btBuscar); // seleccionamos el botón
     }
 
-    public void mostrarAjustes(ActionEvent actionEvent) {
-        seleccionarBoton(btAjustes);
+    /**
+     * Metodo que carga la vista de ajustes
+     */
+    public void mostrarAjustes() {
+        seleccionarBoton(btAjustes); // seleccionamos el botón
     }
 
-    public void cerrarSesion(ActionEvent actionEvent) {
+    /**
+     * Metodo que limpia la app cerrando sesión
+     */
+    public void cerrarSesion() {
     }
 
     public void setPrincipalController(GeneralController principalController) {
         this.principalController = principalController;
     }
 
+    /**
+     * Metodo que gestiona la apariencia de los botones para que el presionado sea diferente a los demás
+     * @param activo botón que pasa a estar activo
+     */
     private void seleccionarBoton(Button activo) {
 
+        // quitamos el estiolo de todos los botones
         btMisrecetas.getStyleClass().remove("btSelect");
         btBuscar.getStyleClass().remove("btSelect");
         btAjustes.getStyleClass().remove("btSelect");
 
-        activo.getStyleClass().add("btSelect");
+        activo.getStyleClass().add("btSelect"); // establecemos el estilo al botón que acabamos de presionar
     }
 }

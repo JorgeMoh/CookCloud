@@ -10,15 +10,19 @@
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="cookcloud.controlador.RecetasCreadasController" stylesheets="/cookcloud/vista/css/RecetasCreadas.css">
 
+    <!--  SECCIÓN CENTRAS  -->
     <center>
+        <!--  CONTENEDOR DE TARJETAS DE RECETA  -->
         <ScrollPane styleClass="scroll" fitToWidth="true">
             <FlowPane fx:id="fpRecetas" styleClass="flowPane" alignment="BASELINE_CENTER"/>
         </ScrollPane>
     </center>
 
+    <!--  SECCIÓN INFERIOR  -->
     <bottom>
         <VBox alignment="CENTER" styleClass="vbBotonAñadir">
             <padding> <Insets bottom="10.0" top="2.0"/> </padding>
+            <!--  BOTON DE PARA INICIAR LA CREACIÓN DE RECETA  -->
             <Button text="+" styleClass="btAñadir" onAction="#cargarVistaFormReceta"/>
         </VBox>
     </bottom>

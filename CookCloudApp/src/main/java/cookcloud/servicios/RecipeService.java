@@ -9,32 +9,36 @@ import java.util.List;
 
 public class RecipeService {
 
-
+    /**
+     * Metodo que sube a la base de datos la receta que le pasamos
+     * @param nuevaReceta
+     */
     public void subirReceta(Receta nuevaReceta) {
 
         EntityManager em = UtilsBD.getEntity();
 
         try {
 
+            // iniciamos la transacción
             em.getTransaction().begin();
 
-            // Fusiona el usuario con el EntityManager activo
-            Usuario usuarioManaged = em.merge(nuevaReceta.getUsuario());
-
-            // Persiste la receta
+            // subimos la receta
             em.persist(nuevaReceta);
 
-            // Sincroniza ambos lados de la relación
-            usuarioManaged.getRecetas().add(nuevaReceta);
-
+            // confirmamos los cambios
             em.getTransaction().commit();
 
         } finally {
-            em.close();
+            em.close(); // cerramos la transacción
         }
 
     }
 
+    /**
+     * Metodo que crea una lista con las recetas creadas por el usuario al que corresponde la id que le pasamos
+     * @param idUsuario id del usuario creador
+     * @return lista de recetas
+     */
     public List<Receta> cargarRecetasCreador(long idUsuario) {
 
         EntityManager em = UtilsBD.getEntity();

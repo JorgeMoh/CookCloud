@@ -36,17 +36,26 @@ public class RecetasCreadasController {
         generalController.cargarFormReceta();
     }
 
-    public void setUsuario(Usuario user) {
+    /**
+     * Setea el usuario y muestra sus recetas creadas
+     * @param user usuario de la sesion
+     */
+    public void setUsuarioYRecetas(Usuario user) {
         this.usuario = user;
 
         mostrarRecetas();
 
     }
 
+    /**
+     * Metodo que muestra una lista de recetas creadas por el usuario que ha iniciado sesión
+     */
     private void mostrarRecetas() {
 
+        // busca en la base de datos las recetas
         recetasCreadas = recipeService.cargarRecetasCreador(usuario.getId_usuario());
 
+        // las muestra en el componente personalizado
         for (Receta receta : recetasCreadas) {
 
             fpRecetas.getChildren().add(new TarjetaReceta(receta));

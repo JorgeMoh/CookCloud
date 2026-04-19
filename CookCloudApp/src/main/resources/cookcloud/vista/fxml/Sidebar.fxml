@@ -9,6 +9,7 @@
       spacing="5" alignment="TOP_CENTER" stylesheets="/cookcloud/vista/css/Sidebar.css"
       styleClass="principal">
 
+    <!--  LOGO  -->
     <ImageView fitWidth="240" fitHeight="200">
         <image>
             <Image url="/cookcloud/data/CookCloud_Logo_Texto.png"/>
@@ -17,15 +18,17 @@
 
     <Separator/>
 
-        <Button text="Mis recetas" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
+    <!--  BOTONES DE NAVEGACIÓN  -->
+    <Button text="Mis recetas" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
 
-        <Button text="Explorar" onAction="#mostrarBuscar" fx:id="btBuscar"/>
+    <Button text="Explorar" onAction="#mostrarExplorador" fx:id="btBuscar"/>
 
-        <Button text="Ajustes" onAction="#mostrarAjustes" fx:id="btAjustes"/>
+    <Button text="Ajustes" onAction="#mostrarAjustes" fx:id="btAjustes"/>
 
-        <Separator/>
+    <Separator/>
 
-        <Button text="Cerrar Sesion" onAction="#cerrarSesion"/>
+    <!--  BOTÓN DE CERRAR SESIÓN  -->
+    <Button text="Cerrar Sesión" onAction="#cerrarSesion"/>
 
 
 </VBox>

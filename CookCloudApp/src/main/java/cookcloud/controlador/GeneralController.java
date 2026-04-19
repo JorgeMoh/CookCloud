@@ -129,20 +129,27 @@ public class GeneralController {
         }
     }
 
+    /**
+     * Metodo que guarda el usuario de la sesión iniciada y carga el sidebar y la vistas de mis recetas
+     * @param user usuario que ha iniciado sesión
+     */
     public void iniciarSesion(Usuario user) {
 
-        background.getChildren().clear();
+        background.getChildren().clear(); // limpiamos toda la escena
 
-        usuario = user;
+        usuario = user; // guardamos el usuario en la escena para mantenerla en todo momento
 
         try {
 
+            // cargamos el sidebar
             FXMLLoader loaderSidebar = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Sidebar.fxml"));
             Parent vistaSidebar = loaderSidebar.load();
 
+            // cargamos la opcion de mis recetas
             FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
             Parent vistaMisRecetas = loaderMisRecetas.load();
 
+            // configuramos y sincronizamos los controladores
             SidebarController controllerSidebar = loaderSidebar.getController();
             controllerSidebar.setPrincipalController(this);
 
@@ -150,6 +157,7 @@ public class GeneralController {
             controllerMisRecetas.setUser(usuario);
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
+            // añadimos las vistas
             background.setLeft(vistaSidebar);
             background.setCenter(vistaMisRecetas);
 
@@ -159,17 +167,23 @@ public class GeneralController {
 
     }
 
+    /**
+     * Metodo que carga la vista mis recetas
+     */
     public void cargarMisRecetas() {
 
         try {
 
+            // cargamos la vista
             FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
             Parent vistaMisRecetas = loaderMisRecetas.load();
 
+            // la configuramos
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
             controllerMisRecetas.setUser(usuario);
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
+            // la añadimos
             background.setCenter(vistaMisRecetas);
 
         } catch (IOException e) {
@@ -178,17 +192,23 @@ public class GeneralController {
 
     }
 
+    /**
+     * Metodo que carga la vista del formulario de creación de recetas
+     */
     public void cargarFormReceta() {
 
         try {
 
+            // cargamos la cista
             FXMLLoader loaderFormReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormReceta.fxml"));
             Parent vistaFormReceta = loaderFormReceta.load();
 
+            // la configuramos
             FormRecetaController controllerFormReceta = loaderFormReceta.getController();
             controllerFormReceta.setBackgroundController(this);
             controllerFormReceta.setUser(usuario);
 
+            // la añadimos a la vista
             background.setCenter(vistaFormReceta);
 
         } catch (IOException e) {
