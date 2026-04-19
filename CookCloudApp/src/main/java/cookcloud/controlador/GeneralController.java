@@ -137,7 +137,7 @@ public class GeneralController {
 
         background.getChildren().clear(); // limpiamos toda la escena
 
-        usuario = user; // guardamos el usuario en la escena para mantenerla en todo momento
+        usuario = user; // guardamos el usuario en la escena para mantenerlo siempre
 
         try {
 
