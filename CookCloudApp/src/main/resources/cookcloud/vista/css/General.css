@@ -81,6 +81,14 @@
     -fx-text-fill: #c7bfb5;
 }
 
+.btEliminar {
+    -fx-background-color: #981f1f;
+}
+
+.btEliminar:hover {
+    -fx-background-color: #be0000;
+}
+
 /* Toggle Buttons */
 .toggle-button{
     -fx-font-weight: bold;
@@ -99,6 +107,10 @@
     -fx-background-color: #068551;
 }
 
+.toggle-button:disabled {
+    -fx-opacity: 1.0;
+}
+
 /* Labels con función al clicar */
 .enlace{
     -fx-font-size: 12px;
@@ -108,9 +120,13 @@
     -fx-text-fill: #068551;
 }
 
-/* Tirulos */
+/* Partes de recetas */
 .titulo{
     -fx-font-size: 40px;
+}
+
+.Ingredientes{
+    -fx-font-size: 18px;
 }
 
 /* Mensajes de error */
@@ -148,7 +164,6 @@
     -fx-pref-width: 350px;
     -fx-max-width: 350px;
 
-
 }
 
 .tituloTarjetaReceta {
@@ -162,3 +177,4 @@
     -fx-font-style: italic;
     -fx-text-fill: #545454;
 }
+

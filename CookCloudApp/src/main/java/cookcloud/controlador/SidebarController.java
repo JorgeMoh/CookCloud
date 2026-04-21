@@ -1,6 +1,5 @@
 package cookcloud.controlador;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
 public class SidebarController {
@@ -8,14 +7,14 @@ public class SidebarController {
     public Button btMisrecetas;
     public Button btBuscar;
     public Button btAjustes;
-    private GeneralController principalController;
+    private GeneralController generalController;
 
     /**
      * Metodo que muestra la vista de mis recetas
      */
     public void mostrarMisRecetas() {
         seleccionarBoton(btMisrecetas); // selecciona el botón
-        principalController.cargarMisRecetas(); // cargamos la vista
+        generalController.cargarMisRecetas(); // cargamos la vista
     }
 
     /**
@@ -36,10 +35,7 @@ public class SidebarController {
      * Metodo que limpia la app cerrando sesión
      */
     public void cerrarSesion() {
-    }
-
-    public void setPrincipalController(GeneralController principalController) {
-        this.principalController = principalController;
+        generalController.cerrarSesion();
     }
 
     /**
@@ -54,5 +50,9 @@ public class SidebarController {
         btAjustes.getStyleClass().remove("btSelect");
 
         activo.getStyleClass().add("btSelect"); // establecemos el estilo al botón que acabamos de presionar
+    }
+
+    public void setGeneralController(GeneralController generalController) {
+        this.generalController = generalController;
     }
 }

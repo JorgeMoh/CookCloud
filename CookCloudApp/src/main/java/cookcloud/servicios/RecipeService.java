@@ -1,7 +1,7 @@
 package cookcloud.servicios;
 
+import cookcloud.modelo.Ingrediente;
 import cookcloud.modelo.Receta;
-import cookcloud.modelo.Usuario;
 import cookcloud.utils.UtilsBD;
 import jakarta.persistence.EntityManager;
 
@@ -52,5 +52,60 @@ public class RecipeService {
             em.close();
         }
 
+    }
+
+    /**
+     * Metodo que borra una receta de la base de datos
+     * @param idReceta id de la receta que vamos a borrar
+     */
+    public void eliminarReceta(Long idReceta) {
+
+
+        EntityManager em = UtilsBD.getEntity();
+        try {
+            em.getTransaction().begin();
+            Receta receta = em.find(Receta.class, idReceta);
+            em.remove(receta);
+            em.getTransaction().commit();
+        }finally {
+            em.close();
+        }
+    }
+
+    /**
+     * Metodo que actualiza una receta ya existente
+     * @param recetaEditada receta con los campos ya editados
+     * @param nuevosIngredientes lista de todos los ingredientes tanto nuevos como antiguos actualizados
+     */
+    public void actualizarReceta(Receta recetaEditada, List<Ingrediente> nuevosIngredientes) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try {
+            em.getTransaction().begin();
+
+            // Buscamos la receta que queremos editar
+            Receta recetaOriginal = em.find(Receta.class, recetaEditada.getId_receta());
+
+            // Actualizamos los campos
+            recetaOriginal.setTitulo(recetaEditada.getTitulo());
+            recetaOriginal.setResumen(recetaEditada.getResumen());
+            recetaOriginal.setPasos(recetaEditada.getPasos());
+            recetaOriginal.setPublica(recetaEditada.isPublica());
+
+            // Limpiamos los ingredientes actuales
+            recetaOriginal.getIngredientes().clear();
+
+            // Añadimos los nuevos ingredientes
+            for (Ingrediente ingrediente : nuevosIngredientes) {
+                recetaOriginal.addIngrediente(ingrediente);
+            }
+
+            // guardamos los cambios
+            em.getTransaction().commit();
+
+        } finally {
+            em.close();
+        }
     }
 }

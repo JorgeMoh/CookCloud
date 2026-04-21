@@ -1,5 +1,6 @@
 package cookcloud.controlador;
 
+import cookcloud.modelo.Receta;
 import cookcloud.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -151,7 +152,7 @@ public class GeneralController {
 
             // configuramos y sincronizamos los controladores
             SidebarController controllerSidebar = loaderSidebar.getController();
-            controllerSidebar.setPrincipalController(this);
+            controllerSidebar.setGeneralController(this);
 
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
             controllerMisRecetas.setUser(usuario);
@@ -217,7 +218,77 @@ public class GeneralController {
 
     }
 
+    /**
+     * Metodo que se encarga de cargar la vista que muestra una receta ya creada por el usuario
+     * @param receta receta que queremos ver
+     */
+    public void cargarVistaReceta(Receta receta) {
+
+        try {
+
+            // obtenemos la vista
+            FXMLLoader loaderReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Receta.fxml"));
+
+            // cargamos la vista
+            Parent vistaFormReceta = loaderReceta.load();
+
+            // la configuramos
+            RecetaController controllerFormReceta = loaderReceta.getController();
+            controllerFormReceta.setBackgroundController(this);
+            controllerFormReceta.setReceta(receta);
+
+            // la añadimos a la vista
+            background.setCenter(vistaFormReceta);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Metodo que se encarga de cargar el formulario autorrellenado para editar una receta ya existente
+     * @param receta receta que vamos a editar
+     */
+    public void cargarVistaEditReceta(Receta receta) {
+
+        try {
+
+            // obtenemos la vista
+            FXMLLoader loaderFormUpdate = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormUpdateReceta.fxml"));
+
+            // cargamos la vista
+            Parent vistaFormReceta = loaderFormUpdate.load();
+
+            // la configuramos
+            FormUpdateRecetaCotroller controllerFormUpdateReceta = loaderFormUpdate.getController();
+            controllerFormUpdateReceta.setBackgroundController(this);
+            controllerFormUpdateReceta.setReceta(receta);
+
+            // la añadimos a la vista
+            background.setCenter(vistaFormReceta);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Metodo que limpia la vista principal y borra el usuario para cargar el inicio de sesión de nuevo
+     */
+    public void cerrarSesion() {
+
+        background.getChildren().clear();
+        usuario = null;
+
+        background.setCenter(form);
+        cargarLogin();
+
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }
+
 }

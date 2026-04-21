@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <ScrollPane stylesheets="/cookcloud/vista/css/Receta.css" xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.FormRecetaController"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.FormUpdateRecetaCotroller"
             styleClass="scroll" fx:id="scroll" fitToWidth="true">
 
     <VBox spacing="10" styleClass="vbReceta" fx:id="vbReceta">
@@ -36,13 +36,7 @@
 
             <!--  INGREDIENTES  -->
             <VBox fx:id="vbIngredientes" spacing="8">
-
-                <HBox spacing="5" styleClass="hbIngre">
-                    <TextField promptText="Ingrediente..." fx:id="tfPrimerIngrediente"/>
-                    <TextField promptText="Cantidad..." maxWidth="100" fx:id="tfPrimeraCantidad"/>
                     <Button text="+" onAction="#agregarCampIngred" fx:id="btAgregar"/>
-                </HBox>
-
             </VBox>
 
             <!--  PASOS  -->
@@ -51,7 +45,7 @@
             </VBox>
 
             <!--  BOTON DE CREAR  -->
-            <VBox><Button text="Crear" onAction="#crearReceta"/></VBox>
+            <VBox><Button text="Actualizar" onAction="#actualizarReceta"/></VBox>
 
         </VBox>
     </VBox>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane stylesheets="/cookcloud/vista/css/Receta.css" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.RecetaController"
+            styleClass="scroll" fx:id="scroll" fitToWidth="true">
+
+    <VBox spacing="10" styleClass="vbReceta" fx:id="vbReceta">
+
+        <!--  BOTÓN DE VOLVER  -->
+        <HBox prefWidth="150.0"><Button styleClass="volver" text="&lt;" onAction="#volver"/></HBox>
+
+        <VBox spacing="10">
+
+            <HBox spacing="50" alignment="CENTER_LEFT">
+
+                <!--  TITULO  -->
+                <Label fx:id="lbTitulo" maxWidth="Infinity" styleClass="titulo"/>
+
+                <!--  ESTADO RECETA  -->
+                <ToggleButton fx:id="tbPublica"/>
+
+            </HBox>
+
+            <!--  RESUMEN  -->
+            <Label fx:id="lbResumen"/>
+
+
+            <!--  INGREDIENTES  -->
+            <VBox fx:id="vbIngredientes" spacing="8"/>
+
+            <!--  PASOS  -->
+            <Label fx:id="lbPasos"/>
+
+            <!--  BOTON DE CREAR  -->
+            <HBox spacing="20">
+                <Button text="Eliminar" styleClass="btEliminar" onAction="#eliminarReceta"/>
+                <Button text="Editar" onAction="#editarReceta"/>
+            </HBox>
+
+        </VBox>
+    </VBox>
+
+
+</ScrollPane>

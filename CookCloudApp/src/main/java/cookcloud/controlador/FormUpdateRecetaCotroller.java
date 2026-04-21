@@ -3,17 +3,17 @@ package cookcloud.controlador;
 import cookcloud.modelo.Ingrediente;
 import cookcloud.modelo.Receta;
 import cookcloud.modelo.Usuario;
+import cookcloud.servicios.IngredientService;
 import cookcloud.servicios.RecipeService;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class FormRecetaController {
+public class FormUpdateRecetaCotroller {
 
     @FXML
     public VBox vbReceta;
@@ -36,10 +36,6 @@ public class FormRecetaController {
     @FXML
     public VBox vbIngredientes;
     @FXML
-    public TextField tfPrimerIngrediente;
-    @FXML
-    public TextField tfPrimeraCantidad;
-    @FXML
     public Button btAgregar;
 
     @FXML
@@ -54,12 +50,14 @@ public class FormRecetaController {
     private Label errorPasos = new Label();
 
     private GeneralController generalController;
-    private Usuario user;
+    private Receta receta;
 
     private ArrayList<TextField> ingredientes = new ArrayList<>();
     private ArrayList<TextField> cantidades = new ArrayList<>();
+    private List<Ingrediente> ingredientesNue = new ArrayList<>();
 
     private RecipeService recipeService = new RecipeService();
+    private IngredientService  ingredientService = new IngredientService();
 
     @FXML
     public void initialize() {
@@ -73,9 +71,6 @@ public class FormRecetaController {
         errorIngredientes.getStyleClass().add("error");
         errorPasos.getStyleClass().add("error");
 
-        // Añadimos los primeros textfield de la sección de ingredientes a sus arraylists
-        ingredientes.add(tfPrimerIngrediente);
-        cantidades.add(tfPrimeraCantidad);
     }
 
     /**
@@ -106,30 +101,22 @@ public class FormRecetaController {
     }
 
     /**
-     * Metodo que crea la receta y la sube a la base de datos
+     * Metodo que actualiza la receta y la prepara para actualizarla en la bd
      */
-    public void crearReceta() {
+    public void actualizarReceta() {
 
         // Comprobamos que los campos esten rellenados correctamente
         if (comprobarCampos()){
 
-            // Guardamos los datos de los campos
-            String titulo = tfTitulo.getText();
-            String resumen = taResumen.getText();
-            ArrayList<Ingrediente> listaIngredientes = cargarIngredientes(); // guarda los que tienen al menos el primer campo relleno
-            String pasos = taPasos.getText();
-            boolean publica = tbPublica.isSelected();
+            // Guardamos los datos de los campos en la receta
+            receta.setTitulo(tfTitulo.getText());
+            receta.setPublica(tbPublica.isSelected());
+            receta.setResumen(taResumen.getText());
+            List<Ingrediente> listaIngredientes = cargarIngredientes(); // guarda los que tienen al menos el primer campo relleno
+            receta.setPasos(taPasos.getText());
 
-            // creamos la receta
-            Receta nuevaReceta = new Receta(titulo,resumen,pasos,publica,user);
-
-            // Añadimos los ingredientes a la receta
-            for(Ingrediente ingrediente: listaIngredientes){
-                nuevaReceta.addIngrediente(ingrediente);
-            }
-
-            // subimos la receta
-            recipeService.subirReceta(nuevaReceta);
+            //Enviamos la receta y los ingredientes para actualizarlos
+            recipeService.actualizarReceta(receta, listaIngredientes);
 
             // Volvemos a la vista de mis recetas
             generalController.cargarMisRecetas();
@@ -261,17 +248,71 @@ public class FormRecetaController {
     }
 
     /**
+     * Metodo que se encarga de rellenar los campos del formulario de actualizacion con los datos de la receta
+     */
+    private void cargarDatosReceta() {
+
+        // seteamos los datos de la receta en los campos
+        tfTitulo.setText(receta.getTitulo());
+        tbPublica.setSelected(receta.isPublica());
+        cambiarEstado(); // sincroniza el estado
+        taResumen.setText(receta.getResumen());
+        cargarIngredientesAntiguos(); // carga los ingredientes creando los campos necesarios
+        taPasos.setText(receta.getPasos());
+
+    }
+
+    /**
+     * Metodo que crea los camos necesarios de los ingredientes y los rellena con los ingredientes que tiene la receta
+     */
+    private void cargarIngredientesAntiguos() {
+
+        // cargamos los ingredientes
+        List<Ingrediente> ingredientesAntig = ingredientService.listarRecetas(receta.getId_receta());
+
+        for (Ingrediente ingrediente: ingredientesAntig) {
+
+            // creamos el contenedor del nuevo ingrediente
+            HBox hbIngredienteAntig = new HBox(5);
+
+            // creamos el campo del nombre del ingrediente y lo añado a su arraylist
+            TextField tfIngrediente = new TextField();
+            tfIngrediente.setPromptText("Ingrediente...");
+            tfIngrediente.setText(ingrediente.getNombre());
+            ingredientes.add(tfIngrediente);
+
+            // creamos el campo de cantidad y lo añado a su arraylist
+            TextField tfCantidad = new TextField();
+            tfCantidad.setPromptText("Cantidad...");
+            tfCantidad.setMaxWidth(100);
+            tfCantidad.setText(ingrediente.getCantidad());
+            cantidades.add(tfCantidad);
+
+            // lo añadimos al contenedor junto al botón de añadir ingrediente
+            hbIngredienteAntig.getChildren().addAll(tfIngrediente, tfCantidad, btAgregar);
+
+            // añadimos el contenedor nuevo al contenedor general de ingredientes
+            vbIngredientes.getChildren().add(hbIngredienteAntig);
+
+        }
+
+    }
+
+    /**
      * Carga la vista de mis recetas
      */
     public void volver() {
-        generalController.cargarMisRecetas();
+        generalController.cargarVistaReceta(receta);
     }
 
     public void setBackgroundController(GeneralController generalController) {
         this.generalController = generalController;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setReceta(Receta receta) {
+        this.receta = receta;
+
+        cargarDatosReceta();
     }
+
 }

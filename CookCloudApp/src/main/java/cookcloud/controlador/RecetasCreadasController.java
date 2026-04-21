@@ -24,18 +24,6 @@ public class RecetasCreadasController {
     private List<Receta> recetasCreadas = new ArrayList<>();
     private Usuario usuario;
 
-    public void setControlador(MisRecetasController misRecetasController) {
-        this.misRecetasController = misRecetasController;
-    }
-
-    public void setControladorBackground(GeneralController generalController) {
-        this.generalController = generalController;
-    }
-
-    public void cargarVistaFormReceta(ActionEvent actionEvent) {
-        generalController.cargarFormReceta();
-    }
-
     /**
      * Setea el usuario y muestra sus recetas creadas
      * @param user usuario de la sesion
@@ -58,9 +46,26 @@ public class RecetasCreadasController {
         // las muestra en el componente personalizado
         for (Receta receta : recetasCreadas) {
 
-            fpRecetas.getChildren().add(new TarjetaReceta(receta));
+            TarjetaReceta tarjetaReceta = new TarjetaReceta(receta);
+            tarjetaReceta.setOnMouseClicked(e -> {
+                generalController.cargarVistaReceta(tarjetaReceta.getReceta());
+            });
+
+            fpRecetas.getChildren().add(tarjetaReceta);
 
         }
 
+    }
+
+    public void setControlador(MisRecetasController misRecetasController) {
+        this.misRecetasController = misRecetasController;
+    }
+
+    public void setControladorBackground(GeneralController generalController) {
+        this.generalController = generalController;
+    }
+
+    public void cargarVistaFormReceta(ActionEvent actionEvent) {
+        generalController.cargarFormReceta();
     }
 }
