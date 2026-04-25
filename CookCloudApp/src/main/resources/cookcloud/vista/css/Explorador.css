@@ -1,0 +1,46 @@
+/* Scroll */
+.scroll {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* FlowPane */
+.flowPane {
+    -fx-background-color: transparent;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 20;
+    -fx-pref-width: infinity;
+    -fx-max-width: infinity;
+}
+
+/* Campos */
+.text-field {
+    -fx-font-size: 15px;
+    -fx-padding: 5;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 0;
+    -fx-border-color: #545454;
+    -fx-background-color: #eeeeee;
+    -fx-pref-width: 500;
+}
+
+.text-field:focused {
+    -fx-border-color: #068551;
+}
+
+/*Barra de búsqueda*/
+.barraBusqueda {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 10;
+}

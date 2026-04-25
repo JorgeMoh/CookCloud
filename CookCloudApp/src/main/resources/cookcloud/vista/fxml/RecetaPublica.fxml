@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <?import javafx.geometry.Insets?>
 <ScrollPane stylesheets="/cookcloud/vista/css/Receta.css" xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.RecetaController"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cookcloud.controlador.RecetaPublicaController"
             styleClass="scroll" fx:id="scroll" fitToWidth="true">
 
     <VBox spacing="10" styleClass="vbReceta" fx:id="vbReceta">
@@ -14,15 +18,9 @@
 
         <VBox spacing="10">
 
-            <HBox spacing="50" alignment="CENTER_LEFT">
+            <!--  TITULO  -->
+            <Label fx:id="lbTitulo" maxWidth="Infinity" styleClass="titulo"/>
 
-                <!--  TITULO  -->
-                <Label fx:id="lbTitulo" maxWidth="Infinity" styleClass="titulo"/>
-
-                <!--  ESTADO RECETA  -->
-                <ToggleButton fx:id="tbPublica"/>
-
-            </HBox>
 
             <Separator/>
 
@@ -40,15 +38,11 @@
             <Label fx:id="lbPasos" styleClass="resumen"/>
 
             <!--  BOTON DE CREAR  -->
-            <HBox spacing="20">
+            <HBox spacing="20" fx:id="hbBotones">
                 <padding> <Insets top="20"/> </padding>
-
-                <Button text="Eliminar" styleClass="btEliminar" onAction="#eliminarReceta"/>
-                <Button text="Editar" onAction="#editarReceta"/>
+                <Button text="Guardar" fx:id="btGuardar" onAction="#guardarReceta"/>
             </HBox>
 
         </VBox>
     </VBox>
-
-
 </ScrollPane>

@@ -62,7 +62,8 @@ public class MisRecetasController {
 
             // la configuramos
             RecetasGuardadasController controller = loader.getController();
-            controller.setControlador(this);
+            controller.setMisRecetasContoller(this);
+            controller.setGenenralController(generalController);
             controller.setUser(user);
 
             // la mostramos

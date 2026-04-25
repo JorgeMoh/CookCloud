@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class TarjetaReceta extends VBox {
@@ -37,9 +38,10 @@ public class TarjetaReceta extends VBox {
 
         Label creador = new Label(receta.getUsuario().getUsuario());
         HBox hbUsuario = new HBox(creador);
-        hbUsuario.setAlignment(Pos.TOP_RIGHT);
+        hbUsuario.setAlignment(Pos.BOTTOM_RIGHT);
 
         this.getChildren().addAll(hbUsuario);
+        this.setVgrow(hbUsuario, Priority.ALWAYS);
 
     }
 

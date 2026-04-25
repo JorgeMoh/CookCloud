@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cookcloud.controlador.ExploradorController" stylesheets="/cookcloud/vista/css/Explorador.css">
+
+    <!--  SECCIÓN SUPERIOR  -->
+    <top>
+        <!--  BUSCADOR  -->
+       <HBox prefWidth="Infinity" styleClass="barraBusqueda" alignment="CENTER">
+           <TextField promptText="Busqueda..."/>
+       </HBox>
+    </top>
+
+    <!--  SECCIÓN CENTRAS  -->
+    <center>
+        <!--  CONTENEDOR DE TARJETAS DE RECETA  -->
+        <ScrollPane styleClass="scroll" fitToWidth="true">
+            <FlowPane fx:id="fpRecetas" styleClass="flowPane" alignment="BASELINE_CENTER"/>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

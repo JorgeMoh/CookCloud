@@ -22,6 +22,7 @@ public class SidebarController {
      */
     public void mostrarExplorador() {
         seleccionarBoton(btBuscar); // seleccionamos el botón
+        generalController.cargarExplorador();
     }
 
     /**

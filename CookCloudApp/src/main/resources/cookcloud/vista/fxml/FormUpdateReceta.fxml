@@ -31,7 +31,7 @@
 
             <!--  RESUMEN  -->
             <VBox fx:id="vbResumen">
-                <TextArea prefRowCount="2" promptText="Breve descripción..." fx:id="taResumen"/>
+                <TextArea prefRowCount="2" promptText="Breve descripción..." fx:id="taResumen" wrapText="true"/>
             </VBox>
 
             <!--  INGREDIENTES  -->
@@ -41,7 +41,7 @@
 
             <!--  PASOS  -->
             <VBox fx:id="vbPasos">
-                <TextArea promptText="Pasos..." fx:id="taPasos"/>
+                <TextArea promptText="Pasos..." fx:id="taPasos" wrapText="true"/>
             </VBox>
 
             <!--  BOTON DE CREAR  -->

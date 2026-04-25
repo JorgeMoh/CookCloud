@@ -52,7 +52,7 @@ public class EmailService {
                                 <h1 style="color: white"> %s </h1>
                             </div>
                         </div>
-                """.formatted("https://i.postimg.cc/L88cW7fk/Cook-Cloud-Logo.png",identificador);
+                """.formatted("https://i.postimg.cc/HLP5SmLX/Cook-Cloud-Logo-Texto.png",identificador);
 
         htmlPart.setText(messageBody, "utf-8", "html");
 

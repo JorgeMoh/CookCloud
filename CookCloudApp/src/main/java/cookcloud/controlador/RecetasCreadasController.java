@@ -20,8 +20,6 @@ public class RecetasCreadasController {
     private GeneralController generalController;
 
     private RecipeService recipeService = new RecipeService();
-
-    private List<Receta> recetasCreadas = new ArrayList<>();
     private Usuario usuario;
 
     /**
@@ -30,9 +28,7 @@ public class RecetasCreadasController {
      */
     public void setUsuarioYRecetas(Usuario user) {
         this.usuario = user;
-
         mostrarRecetas();
-
     }
 
     /**
@@ -41,7 +37,7 @@ public class RecetasCreadasController {
     private void mostrarRecetas() {
 
         // busca en la base de datos las recetas
-        recetasCreadas = recipeService.cargarRecetasCreador(usuario.getId_usuario());
+        List<Receta> recetasCreadas = recipeService.cargarRecetasCreador(usuario.getId_usuario());
 
         // las muestra en el componente personalizado
         for (Receta receta : recetasCreadas) {

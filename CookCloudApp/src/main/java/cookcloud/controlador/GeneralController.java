@@ -25,6 +25,10 @@ public class GeneralController {
         cargarLogin();
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
     /**
      * Metodo que carga y enlaza los controllers entre la vista general y el Login
      */
@@ -275,6 +279,29 @@ public class GeneralController {
     }
 
     /**
+     * Metodo que carga la vista del explorador de recetas
+     */
+    public void cargarExplorador() {
+        try {
+
+            // cargamos la vista
+            FXMLLoader loaderExplorador = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Explorador.fxml"));
+            Parent vista = loaderExplorador.load();
+
+            // la configuramos
+            ExploradorController controllerMisRecetas = loaderExplorador.getController();
+            controllerMisRecetas.setUser(usuario);
+            controllerMisRecetas.setControllerYCargarMisRecetas(this);
+
+            // la añadimos
+            background.setCenter(vista);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Metodo que limpia la vista principal y borra el usuario para cargar el inicio de sesión de nuevo
      */
     public void cerrarSesion() {
@@ -287,8 +314,60 @@ public class GeneralController {
 
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    /**
+     * Metodo que carga la vista de una receta publica de otro usuario diferente al de la sesión
+     * @param receta receta que vamos a mostrar
+     * @param llamaElExplorador identificador para diferenciar si se llama desde el explorador o desde la sección de recetas guardadas
+     */
+    public void cargarVistaRecetaPublica(Receta receta, boolean llamaElExplorador) {
+
+        try {
+
+            // obtenemos la vista
+            FXMLLoader loaderRecetaPublica = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecetaPublica.fxml"));
+
+            // cargamos la vista
+            Parent vistaFormReceta = loaderRecetaPublica.load();
+
+            // la configuramos
+            RecetaPublicaController controllerRecetaPublica = loaderRecetaPublica.getController();
+            controllerRecetaPublica.setBackgroundController(this);
+            controllerRecetaPublica.setReceta(receta);
+            controllerRecetaPublica.setUser(usuario);
+            controllerRecetaPublica.setLlamaElExplrador(llamaElExplorador);
+
+            // la añadimos a la vista
+            background.setCenter(vistaFormReceta);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
+    /**
+     * Metodo que carga la sección de mis recetas mostrando la subsección de recetas guardadas
+     */
+    public void cargarMisRecetasGuardadas() {
+
+        try {
+
+            // cargamos la vista
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            Parent vistaMisRecetas = loaderMisRecetas.load();
+
+            // la configuramos
+            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            controllerMisRecetas.setUser(usuario);
+            controllerMisRecetas.setControllerYCargarMisRecetas(this);
+            controllerMisRecetas.cargarRecetasGuardadas();
+
+            // la añadimos
+            background.setCenter(vistaMisRecetas);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
