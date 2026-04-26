@@ -30,6 +30,7 @@ public class SidebarController {
      */
     public void mostrarAjustes() {
         seleccionarBoton(btAjustes); // seleccionamos el botón
+        generalController.cargarAjustes();
     }
 
     /**

@@ -98,4 +98,81 @@ public class UserService {
 
     }
 
+    /**
+     * Metoodo que actualiza en la base de datos el nombre de un usuario
+     * @param idUsuario id del usuario al que vamos a cambiar el usuario
+     * @param nuevoNombre nuevo nombre de usuario
+     */
+    public void cambiarNombreDeUsuario(long idUsuario, String nuevoNombre) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try {
+            // Iniciamos la transacción
+            em.getTransaction().begin();
+
+            // Cambiamos el nombre de usuario
+            Usuario s = em.find(Usuario.class, idUsuario);
+            s.setUsuario(nuevoNombre);
+
+            // terminamos la transaccion y confirmamos cambios
+            em.getTransaction().commit();
+
+        }finally {
+            em.close();
+        }
+
+    }
+
+    /**
+     * Metodo que actualiza en la base de datos la contraseña de un usuario
+     * @param idUsuario id del usuario al que se le va a cambiar la contraseña
+     * @param pass contraseña nueva
+     */
+    public void cambiarContrasenia(long idUsuario, String pass) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try {
+            // Iniciamos la transacción
+            em.getTransaction().begin();
+
+            // Cambiamos la contraseña de usuario
+            Usuario s = em.find(Usuario.class, idUsuario);
+            s.setPassw(pass);
+
+            // terminamos la transaccion y confirmamos cambios
+            em.getTransaction().commit();
+
+        }finally {
+            em.close();
+        }
+
+    }
+
+    /**
+     * Metodo que elimina un usuario de la base de datos
+     * @param idUsuario
+     */
+    public void eliminarCuenta(long idUsuario) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try {
+
+            // Iniciamos la transacción
+            em.getTransaction().begin();
+
+            // buscamos al usuario y lo eliminamos
+            em.remove(em.find(Usuario.class, idUsuario));
+
+            // terminamos la transaccion y confirmamos cambios
+            em.getTransaction().commit();
+
+        }finally {
+            em.close();
+        }
+
+    }
+
 }

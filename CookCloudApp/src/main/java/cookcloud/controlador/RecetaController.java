@@ -39,17 +39,9 @@ public class RecetaController {
 
     GeneralController generalController;
     Receta receta;
-    Alert confirmarElim = new Alert(Alert.AlertType.CONFIRMATION);
 
     @FXML
     public void initialize() {
-
-        // Configuramos la alerta de confirmación
-        confirmarElim.setTitle("Confirmación");
-        confirmarElim.setHeaderText(null);
-        confirmarElim.setContentText("¿Estas seguro que quieres ELIMINAR esta receta?");
-        Stage alertStage = (Stage) confirmarElim.getDialogPane().getScene().getWindow();
-        alertStage.getIcons().add(new Image("/cookcloud/data/CookCloud_Logo.png"));
 
         tbPublica.setDisable(true); // deshabilitamos el botón para que no cambie
 
@@ -62,6 +54,14 @@ public class RecetaController {
      * Metodo que elimina la receta de la base de datos después de confirmar que quieres borrarla
      */
     public void eliminarReceta() {
+
+        // Configuramos la alerta de confirmación
+        Alert confirmarElim = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmarElim.setTitle("Confirmación");
+        confirmarElim.setHeaderText(null);
+        confirmarElim.setContentText("¿Estas seguro que quieres ELIMINAR esta receta?");
+        Stage alertStage = (Stage) confirmarElim.getDialogPane().getScene().getWindow();
+        alertStage.getIcons().add(new Image("/cookcloud/data/CookCloud_Logo.png"));
 
         // lanzamos el alert y guardamos el boton que ha presionado el usuario
         Optional<ButtonType> resultado = confirmarElim.showAndWait();
@@ -147,6 +147,9 @@ public class RecetaController {
 
     }
 
+    /**
+     * Metodo que cambia la vista la de mis recetas
+     */
     public void volver() {
         generalController.cargarMisRecetas();
     }

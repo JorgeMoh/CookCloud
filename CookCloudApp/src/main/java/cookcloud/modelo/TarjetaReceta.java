@@ -41,7 +41,7 @@ public class TarjetaReceta extends VBox {
         hbUsuario.setAlignment(Pos.BOTTOM_RIGHT);
 
         this.getChildren().addAll(hbUsuario);
-        this.setVgrow(hbUsuario, Priority.ALWAYS);
+        setVgrow(hbUsuario, Priority.ALWAYS);
 
     }
 

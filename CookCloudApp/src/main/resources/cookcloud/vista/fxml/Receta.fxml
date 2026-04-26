@@ -14,13 +14,15 @@
 
         <VBox spacing="10">
 
-            <HBox spacing="50" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT">
 
                 <!--  TITULO  -->
                 <Label fx:id="lbTitulo" maxWidth="Infinity" styleClass="titulo"/>
 
                 <!--  ESTADO RECETA  -->
-                <ToggleButton fx:id="tbPublica"/>
+                <HBox alignment="CENTER" HBox.Hgrow="ALWAYS">
+                    <ToggleButton fx:id="tbPublica"/>
+                </HBox>
 
             </HBox>
 

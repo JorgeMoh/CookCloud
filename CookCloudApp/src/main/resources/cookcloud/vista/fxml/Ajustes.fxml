@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="cookcloud.controlador.AjustesController"
+      prefHeight="Infinity" prefWidth="Infinity" spacing="20"
+      stylesheets="/cookcloud/vista/css/Ajustes.css" style="-fx-background-color: #ffffff">
+
+    <padding>
+        <Insets top="10" bottom="10" right="20" left="20"/>
+    </padding>
+
+    <!--  CABECERA SECCIÓN DE CUENTA  -->
+    <VBox alignment="CENTER_LEFT">
+        <Label text=" Cuenta" styleClass="cabecera"/>
+        <Separator/>
+    </VBox>
+
+    <!--  SECCIÓN ACTUALIZAR NOMBRE  -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Nombre de usuario:" styleClass="apartado"/>
+        <VBox alignment="CENTER" fx:id="vbCampoUser">
+            <TextField promptText="Nombre de usuario..." fx:id="tfNombre"/>
+        </VBox>
+        <Button text="Cambiar Nombre" onAction="#cambiarNombreDeUsuario"/>
+    </HBox>
+
+    <!--  SECCIÓN ACTUALIZAR CONTRASEÑA  -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Contraseña:" styleClass="apartado"/>
+        <VBox fx:id="vbNewPass">
+            <TextField promptText="Nueva contraseña..." fx:id="tfNuevaPass"/>
+        </VBox>
+        <VBox fx:id="vbNewPass2">
+            <TextField promptText="Repite la contraseña..." fx:id="tfNuevaPassRepetedia"/>
+        </VBox>
+        <Button text="Cambiar Contraseña" onAction="#cambiarContraseña"/>
+    </HBox>
+
+    <!--  BOTÓN ELIMINAR CUENTA  -->
+    <HBox alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
+        <Button text="Borrar Cuenta" styleClass="btEliminar" onAction="#borrarCuenta"/>
+    </HBox>
+
+</VBox>

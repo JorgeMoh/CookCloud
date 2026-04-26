@@ -38,7 +38,7 @@ public class GeneralController {
 
             // Cargamos la vista de login
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Login.fxml"));
-            Parent vistaLogin = loader.load();
+            Parent vista = loader.load();
 
             // Obtenemos el controlador y le pasamos este para conectarlos
             LoginController controller = loader.getController();
@@ -46,7 +46,7 @@ public class GeneralController {
 
             // Caragamos el fxml en el VBox
             form.getChildren().clear();
-            form.getChildren().setAll(vistaLogin);
+            form.getChildren().setAll(vista);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class GeneralController {
 
             // Cargamos la vista del registro
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Register.fxml"));
-            Parent vistaRegister = loader.load();
+            Parent vista = loader.load();
 
             //  Obtenemos el controlador y le pasamos este para conectarlos
             RegisterController controller = loader.getController();
@@ -71,7 +71,7 @@ public class GeneralController {
 
             // Caragamos el fxml en el VBox
             form.getChildren().clear();
-            form.getChildren().setAll(vistaRegister);
+            form.getChildren().setAll(vista);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class GeneralController {
 
             // Cargamos la vista del registro
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Verification.fxml"));
-            Parent vistaVerification = loader.load();
+            Parent vista = loader.load();
 
             //  Obtenemos el controlador y le pasamos este para conectarlos
             RegisterController controller = loader.getController();
@@ -100,7 +100,7 @@ public class GeneralController {
 
             // Caragamos el fxml en el VBox
             form.getChildren().clear();
-            form.getChildren().setAll(vistaVerification);
+            form.getChildren().setAll(vista);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -181,7 +181,7 @@ public class GeneralController {
 
             // cargamos la vista
             FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
-            Parent vistaMisRecetas = loaderMisRecetas.load();
+            Parent vista = loaderMisRecetas.load();
 
             // la configuramos
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
@@ -189,7 +189,7 @@ public class GeneralController {
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
             // la añadimos
-            background.setCenter(vistaMisRecetas);
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -206,7 +206,7 @@ public class GeneralController {
 
             // cargamos la cista
             FXMLLoader loaderFormReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormReceta.fxml"));
-            Parent vistaFormReceta = loaderFormReceta.load();
+            Parent vista = loaderFormReceta.load();
 
             // la configuramos
             FormRecetaController controllerFormReceta = loaderFormReceta.getController();
@@ -214,7 +214,7 @@ public class GeneralController {
             controllerFormReceta.setUser(usuario);
 
             // la añadimos a la vista
-            background.setCenter(vistaFormReceta);
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -230,11 +230,9 @@ public class GeneralController {
 
         try {
 
-            // obtenemos la vista
-            FXMLLoader loaderReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Receta.fxml"));
-
             // cargamos la vista
-            Parent vistaFormReceta = loaderReceta.load();
+            FXMLLoader loaderReceta = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Receta.fxml"));
+            Parent vista = loaderReceta.load();
 
             // la configuramos
             RecetaController controllerFormReceta = loaderReceta.getController();
@@ -242,7 +240,7 @@ public class GeneralController {
             controllerFormReceta.setReceta(receta);
 
             // la añadimos a la vista
-            background.setCenter(vistaFormReceta);
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -258,11 +256,9 @@ public class GeneralController {
 
         try {
 
-            // obtenemos la vista
-            FXMLLoader loaderFormUpdate = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormUpdateReceta.fxml"));
-
             // cargamos la vista
-            Parent vistaFormReceta = loaderFormUpdate.load();
+            FXMLLoader loaderFormUpdate = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/FormUpdateReceta.fxml"));
+            Parent vista = loaderFormUpdate.load();
 
             // la configuramos
             FormUpdateRecetaCotroller controllerFormUpdateReceta = loaderFormUpdate.getController();
@@ -270,7 +266,7 @@ public class GeneralController {
             controllerFormUpdateReceta.setReceta(receta);
 
             // la añadimos a la vista
-            background.setCenter(vistaFormReceta);
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -327,7 +323,7 @@ public class GeneralController {
             FXMLLoader loaderRecetaPublica = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecetaPublica.fxml"));
 
             // cargamos la vista
-            Parent vistaFormReceta = loaderRecetaPublica.load();
+            Parent vista = loaderRecetaPublica.load();
 
             // la configuramos
             RecetaPublicaController controllerRecetaPublica = loaderRecetaPublica.getController();
@@ -337,7 +333,7 @@ public class GeneralController {
             controllerRecetaPublica.setLlamaElExplrador(llamaElExplorador);
 
             // la añadimos a la vista
-            background.setCenter(vistaFormReceta);
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -354,7 +350,7 @@ public class GeneralController {
 
             // cargamos la vista
             FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
-            Parent vistaMisRecetas = loaderMisRecetas.load();
+            Parent vista = loaderMisRecetas.load();
 
             // la configuramos
             MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
@@ -363,7 +359,32 @@ public class GeneralController {
             controllerMisRecetas.cargarRecetasGuardadas();
 
             // la añadimos
-            background.setCenter(vistaMisRecetas);
+            background.setCenter(vista);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Metodo que carga la vista de ajustes
+     */
+    public void cargarAjustes() {
+
+        try {
+
+            // cargamos la vista
+            FXMLLoader loaderAjustes = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Ajustes.fxml"));
+            Parent vista = loaderAjustes.load();
+
+            // la configuramos
+            AjustesController controllerAjustes = loaderAjustes.getController();
+            controllerAjustes.setUser(usuario);
+            controllerAjustes.setGeneralController(this);
+
+            // la añadimos
+            background.setCenter(vista);
 
         } catch (IOException e) {
             e.printStackTrace();

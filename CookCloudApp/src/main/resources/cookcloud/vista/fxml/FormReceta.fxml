@@ -15,7 +15,7 @@
 
         <VBox spacing="10">
 
-            <HBox spacing="50" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT">
 
                 <!--  TITULO  -->
                 <VBox fx:id="vbTitulo">
@@ -23,7 +23,7 @@
                 </VBox>
 
                 <!--  ESTADO RECETA  -->
-                <HBox alignment="CENTER">
+                <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                     <ToggleButton text="Privada" fx:id="tbPublica" onMouseClicked="#cambiarEstado"/>
                 </HBox>
 

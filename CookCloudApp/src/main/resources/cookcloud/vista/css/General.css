@@ -24,6 +24,7 @@
 .label {
     -fx-font-size: 14px;
     -fx-text-fill: #6b6b6b;
+    -fx-wrap-text: true;
 }
 
 /* Campos */
