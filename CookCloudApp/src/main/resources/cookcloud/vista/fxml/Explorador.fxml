@@ -6,14 +6,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="cookcloud.controlador.ExploradorController" stylesheets="/cookcloud/vista/css/Explorador.css">
 
     <!--  SECCIÓN SUPERIOR  -->
     <top>
-        <!--  BUSCADOR  -->
-       <HBox prefWidth="Infinity" styleClass="barraBusqueda" alignment="CENTER">
-           <TextField promptText="Busqueda..."/>
+       <HBox prefWidth="Infinity" styleClass="barraBusqueda" alignment="CENTER" spacing="5">
+           <!--  BOTÓN RECARGAR  -->
+           <Button styleClass="volver" onAction="#recargar">
+               <graphic><FontAwesomeIconView glyphName="REFRESH" size="16"/></graphic>
+           </Button>
+           <!--  BUSCADOR  -->
+           <TextField promptText="Busqueda..." fx:id="tfBuscador"/>
+           <!--  BOTÓN BUSCAR  -->
+           <Button styleClass="volver" onAction="#buscar">
+               <graphic><FontAwesomeIconView glyphName="SEARCH" size="16"/></graphic>
+           </Button>
        </HBox>
     </top>
 

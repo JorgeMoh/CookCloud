@@ -8,6 +8,12 @@
     <artifactId>CookCloudApp</artifactId>
     <dependencies>
 
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-fontawesome</artifactId>
+            <version>4.7.0-9.1.2</version>
+        </dependency>
+
         <!--    ENVIAR CORREO    -->
         <dependency>
             <groupId>com.sun.mail</groupId>
