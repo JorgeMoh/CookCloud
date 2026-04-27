@@ -30,4 +30,7 @@
     <!--  ACCESO AL REGISTRO  -->
     <Label  styleClass="enlace" text="Registrarse ->" onMouseClicked="#irARegistro"/>
 
+    <!--  ACCESO RECUPERACION DE CUENTA  -->
+    <Label  styleClass="enlace" text="¿Has olvidado tu contraseña?" onMouseClicked="#irARecuperacion"/>
+
 </VBox>

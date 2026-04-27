@@ -42,7 +42,6 @@ public class RegisterController {
     private Label errPass = new Label();
     private Label errPass2 = new Label();
     private Label errCode = new Label();
-    private Alert usuarioCreado = new Alert(Alert.AlertType.INFORMATION);
     private Alert errorRegistro = new Alert(Alert.AlertType.ERROR);
 
     private GeneralController generalController;
@@ -54,11 +53,6 @@ public class RegisterController {
 
     @FXML
     public void initialize() {
-
-        // Configuramos el alert de confirmacion
-        usuarioCreado.setTitle("Confirmación");
-        usuarioCreado.setHeaderText(null);
-        usuarioCreado.setContentText("¡Usuario creado con éxito!");
 
         // Configuramos el alert de error
         errorRegistro.setTitle("Error de registro");
@@ -143,16 +137,8 @@ public class RegisterController {
         // Si esta bien se elimina el mensaje de error
         } else vbUser.getChildren().remove(errUser);
 
-        // Si el campo de correo esta vacio se muestra mensaje de error
-        if (tfEmail.getText().trim().isEmpty()) {
-
-            errEmail.setText("Email vacio");
-            vbEmail.getChildren().remove(errEmail);
-            vbEmail.getChildren().add(errEmail);
-            valido = false;
-
         // En caso de que el correo electrónico no este bien construido muestra mensaje de error
-        } else if (!tfEmail.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+        if (!tfEmail.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
 
             errEmail.setText("Email no valido. EJEMPLO: nombreCorreo@dominio.com");
             vbEmail.getChildren().remove(errEmail);
@@ -170,16 +156,8 @@ public class RegisterController {
         // Si está correctamente rellenado se elimina el mensaje de error
         } else vbEmail.getChildren().remove(errEmail);
 
-        // Si la contraseña esta vacía muestra un mensaje de error
-        if (tfPass.getText().trim().isEmpty()) {
-
-            errPass.setText("Contraseña vacia");
-            vbPass.getChildren().remove(errPass);
-            vbPass.getChildren().add(errPass);
-            valido = false;
-
         // Muestra un mensaje de error en caso de que la contraseña no coincida con el patron: 8 caracteres, 1 mayúscula y 1 número
-        } else if (!tfPass.getText().matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
+        if (!tfPass.getText().matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
 
             errPass.setText("Contraseña debe tener 8 caracteres(1 mayúscula y 1 numero)");
             vbPass.getChildren().remove(errPass);
@@ -234,8 +212,7 @@ public class RegisterController {
 
                 // Subimos el usuario a la base de datos
                 userService.registrarUsuario(userRegis);
-                // Lanzamos un aviso de confirmacion
-                usuarioCreado.showAndWait();
+
                 // Volvemos al login
                 irALogin();
 
@@ -257,18 +234,10 @@ public class RegisterController {
         boolean correcto = true;
         int code =0;
 
-        // Comprobamos que el campo esté lleno
-        if (tfCode.getText().trim().isEmpty()){
+        // Comprobamos que el campo esté lleno de numeros
+        if (!tfCode.getText().matches("^[0-9]{6}$")) {
 
-            errCode.setText("Codigo vacio");
-            vbCode.getChildren().remove(errCode);
-            vbCode.getChildren().add(errCode);
-            correcto = false;
-
-        // Comprobamos que se an introducido números solamente
-        } else if (!tfCode.getText().matches("^[0-9]{6}$")) {
-
-            errCode.setText("Solo deben ser números");
+            errCode.setText("Codigo no valido");
             vbCode.getChildren().remove(errCode);
             vbCode.getChildren().add(errCode);
             correcto = false;

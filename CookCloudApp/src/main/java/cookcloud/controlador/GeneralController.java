@@ -391,4 +391,58 @@ public class GeneralController {
         }
 
     }
+
+    /**
+     * Metodo que carga la vista que pide el correo para cambiar la contraseña cuando no la recuerdas
+     */
+    public void cargarRecoverPass() {
+
+        try {
+
+            // Cargamos la vista del registro
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/RecoverPass.fxml"));
+            Parent vista = loader.load();
+
+            //  Obtenemos el controlador y le pasamos este para conectarlos
+            RecoverPassController controller = loader.getController();
+            controller.setGeneralController(this);
+
+            // Caragamos el fxml en el VBox
+            form.getChildren().clear();
+            form.getChildren().setAll(vista);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Metodo Que cambia a la vista que cambia la contraseña cuando la hemos olvidado
+     * @param nVerificacion código de verificación
+     * @param usuario usuario al que le vamos a cambiar la contraseña
+     */
+    public void cargarChangePass(int nVerificacion, Usuario usuario) {
+
+        try {
+
+            // Cargamos la vista del registro
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/ChangePass.fxml"));
+            Parent vista = loader.load();
+
+            //  Obtenemos el controlador y le pasamos este para conectarlos
+            RecoverPassController controller = loader.getController();
+            controller.setGeneralController(this);
+            controller.setnVerificacion(nVerificacion);
+            controller.setUsuario(usuario);
+
+            // Caragamos el fxml en el VBox
+            form.getChildren().clear();
+            form.getChildren().setAll(vista);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
 }

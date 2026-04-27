@@ -175,4 +175,25 @@ public class UserService {
 
     }
 
+    /**
+     * Metodo que busca y devuelve un usuario buscandolo por su correo
+     * @param emailUsuario correo del usuario que buscamos
+     * @return usuario que buscábamos
+     */
+    public Usuario buscarUsuarioPorEmail(String emailUsuario) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try{
+
+            // buscamos y guardamos el usuario
+            Usuario s = em.createQuery("FROM Usuario s WHERE s.email = :email", Usuario.class)
+                    .setParameter("email", emailUsuario).getSingleResult();
+
+            return s; // devolvemos a ese usuario
+
+        }finally {
+            em.close();
+        }
+    }
 }

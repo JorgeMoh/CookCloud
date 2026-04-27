@@ -31,10 +31,10 @@
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="Contraseña:" styleClass="apartado"/>
         <VBox fx:id="vbNewPass">
-            <TextField promptText="Nueva contraseña..." fx:id="tfNuevaPass"/>
+            <PasswordField promptText="Nueva contraseña..." fx:id="tfNuevaPass"/>
         </VBox>
         <VBox fx:id="vbNewPass2">
-            <TextField promptText="Repite la contraseña..." fx:id="tfNuevaPassRepetedia"/>
+            <PasswordField promptText="Repite la contraseña..." fx:id="tfNuevaPassRepetedia"/>
         </VBox>
         <Button text="Cambiar Contraseña" onAction="#cambiarContraseña"/>
     </HBox>

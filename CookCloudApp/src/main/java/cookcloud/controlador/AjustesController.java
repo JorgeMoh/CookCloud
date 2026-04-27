@@ -3,12 +3,8 @@ package cookcloud.controlador;
 import cookcloud.modelo.Usuario;
 import cookcloud.servicios.UserService;
 import cookcloud.utils.UtilsPass;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,9 +16,9 @@ public class AjustesController {
     @FXML
     public TextField tfNombre;
     @FXML
-    public TextField tfNuevaPass;
+    public PasswordField tfNuevaPass;
     @FXML
-    public TextField tfNuevaPassRepetedia;
+    public PasswordField tfNuevaPassRepetedia;
     @FXML
     public VBox vbCampoUser;
     @FXML

@@ -134,4 +134,11 @@ public class LoginController {
         return rellenados;
 
     }
+
+    /**
+     * Metodo que cambia la vista a la de recuperación de contraseña en el login
+     */
+    public void irARecuperacion() {
+        generalController.cargarRecoverPass();
+    }
 }
