@@ -6,7 +6,7 @@ import jakarta.mail.internet.*;
 
 public class EmailService {
 
-    private String urlImagen = "https://i.postimg.cc/HLP5SmLX/Cook-Cloud-Logo-Texto.png";
+    private String urlImagen = "https://i.postimg.cc/NMysznzZ/Cook-Cloud-Logo-Texto.png";
 
     /**
      * Metodo que envia un correo al usuario con un código de verificación para crear una cuenta

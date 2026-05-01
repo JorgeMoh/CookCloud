@@ -10,7 +10,7 @@
       styleClass="principal">
 
     <!--  LOGO  -->
-    <ImageView fitWidth="240" fitHeight="200">
+    <ImageView fitWidth="240" fitHeight="180">
         <image>
             <Image url="/cookcloud/data/CookCloud_Logo_Texto.png"/>
         </image>
