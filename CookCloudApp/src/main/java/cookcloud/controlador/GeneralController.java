@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -17,7 +18,7 @@ public class GeneralController {
     @FXML
     public VBox form;
 
-    Usuario usuario;
+    private Usuario usuario;
 
     @FXML
     public void initialize() {
@@ -445,4 +446,9 @@ public class GeneralController {
         }
 
     }
+
+    public Stage getStage() {
+        return (Stage) background.getScene().getWindow();
+    }
+
 }

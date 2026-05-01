@@ -5,14 +5,17 @@ import cookcloud.modelo.Receta;
 import cookcloud.modelo.Usuario;
 import cookcloud.servicios.IngredientService;
 import cookcloud.servicios.RecipeService;
+import cookcloud.utils.UtilsPDF;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.List;
 
 public class RecetaPublicaController {
@@ -111,12 +114,13 @@ public class RecetaPublicaController {
 
             HBox hbIngrediente = new HBox(5);
 
-            Label nombreIngrediente = new Label(" - " + ingrediente.getNombre());
-            nombreIngrediente.getStyleClass().add("ingredientes");
-            Label cantidadIngrediente = new Label(ingrediente.getCantidad());
+            Label cantidadIngrediente = new Label(" - " + ingrediente.getCantidad());
             cantidadIngrediente.getStyleClass().add("ingredientes");
 
-            hbIngrediente.getChildren().addAll(nombreIngrediente, cantidadIngrediente);
+            Label nombreIngrediente = new Label(ingrediente.getNombre());
+            nombreIngrediente.getStyleClass().add("ingredientes");
+
+            hbIngrediente.getChildren().addAll(cantidadIngrediente,nombreIngrediente);
 
             vbIngredientes.getChildren().add(hbIngrediente);
 
@@ -163,6 +167,46 @@ public class RecetaPublicaController {
 
     public void setLlamaElExplrador(boolean llamaElExplorador) {
         this.llamaElExplorador = llamaElExplorador;
+    }
+
+    /**
+     * Metodo que pide la ruta donde queramos guardar la receta y la guarda en formato pdf
+     */
+    public void exportarPDF() {
+
+        // Cargamos los ingredientes
+        List<Ingrediente> ingredientes = ingredientService.listarRecetas(receta.getId_receta());
+
+        // obtenemos el stage y guardamos la ruta
+        Stage stage = generalController.getStage();
+        File ruta = pedirRuta(stage);
+
+        // Si el usuario ha seleccionado una ruta crea el archivo
+        if (ruta != null) {
+            System.out.println(ruta);
+            UtilsPDF.exportarReceta(receta, ingredientes, ruta.getAbsolutePath());
+        }
+
+    }
+
+    /**
+     * Metodo que carga la ventana del selector de archivos
+     * @param stage stage al que está vinculado el diálogo
+     * @return file con la ruta que hemos seleccionado
+     */
+    private File pedirRuta(Stage stage) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar receta");
+
+        // Sugerimos el nombre por defecto
+        fileChooser.setInitialFileName(receta.getTitulo()+".pdf");
+
+        // mostramos solo los archivos PDF
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF (*.pdf)", "*.pdf"));
+
+        // Abrimos diálogo
+        return fileChooser.showSaveDialog(stage);
     }
 
 }

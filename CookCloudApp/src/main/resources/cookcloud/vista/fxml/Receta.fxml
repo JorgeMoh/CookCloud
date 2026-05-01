@@ -17,6 +17,16 @@
                     <FontAwesomeIconView glyphName="ARROW_LEFT" size="16"/>
                 </graphic>
             </Button>
+
+            <!--  BOTÓN EXPORTAR PDF  -->
+            <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                <Button styleClass="volver" onAction="#exportarPDF">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PRINT" size="16"/>
+                    </graphic>
+                </Button>
+            </HBox>
+
         </HBox>
 
         <VBox spacing="10">

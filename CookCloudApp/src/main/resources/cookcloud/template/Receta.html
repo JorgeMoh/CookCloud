@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Receta</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+                margin: 0;
+            }
+
+            .container {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            /* HEADER */
+            .header {
+                background: #0A7A4F;
+                color: white;
+                padding: 25px;
+                border-radius: 16px;
+                text-align: center;
+            }
+
+            .header h1 {
+                margin: 0;
+                font-size: 28px;
+            }
+
+            .autor {
+                margin-top: 8px;
+                font-size: 14px;
+                opacity: 0.9;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .descripcion {
+                text-align: center;
+                color: #555;
+                margin-bottom: 25px;
+                font-size: 15px;
+            }
+
+            .seccion {
+                margin-top: 25px;
+            }
+
+            .seccion h2 {
+                border-bottom: 2px solid #0A7A4F;
+                padding-bottom: 5px;
+                color: #0A7A4F;
+                margin-bottom: 15px;
+            }
+
+            /* INGREDIENTES */
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            ul li {
+                background: #f0f3f2;
+                margin: 8px 0;
+                padding: 12px;
+                /*border-radius: 6px;*/
+                border-left: 5px solid #068551;
+                font-size: 14px;
+            }
+
+            /* PASOS */
+            .pasos {
+                white-space: pre-line;
+                line-height: 1.7;
+                color: #333;
+                font-size: 14px;
+            }
+
+            /* FOOTER */
+
+            @page {
+                margin-bottom: 60px; /* espacio reservado para el footer */
+            }
+
+            .footer {
+                text-align: center;
+                padding: 15px;
+                font-size: 12px;
+                color: #999;
+                border-top: 1px solid #eee;
+                margin-top: 20px;
+                position: running(footer);
+            }
+
+            @page {
+                @bottom-center {
+                    content: element(footer); /* lo coloca en el área inferior de cada página */
+                }
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="header">
+                <h1>${nombre}</h1>
+                <div class="autor">Creado por ${autor}</div>
+            </div>
+
+            <div class="content">
+
+                <p class="descripcion">${descripcion}</p>
+
+                <!-- INGREDIENTES -->
+                <div class="seccion">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        ${ingredientes}
+                    </ul>
+                </div>
+
+                <!-- PASOS -->
+                <div class="seccion">
+                    <h2>Preparación</h2>
+                    <div class="pasos">
+                        ${pasos}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                Generado por CookCloud
+            </div>
+
+        </div>
+
+    </body>
+</html>
