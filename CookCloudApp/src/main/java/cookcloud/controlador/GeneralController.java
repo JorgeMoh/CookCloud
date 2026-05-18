@@ -152,14 +152,14 @@ public class GeneralController {
             Parent vistaSidebar = loaderSidebar.load();
 
             // cargamos la opcion de mis recetas
-            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Recetario.fxml"));
             Parent vistaMisRecetas = loaderMisRecetas.load();
 
             // configuramos y sincronizamos los controladores
             SidebarController controllerSidebar = loaderSidebar.getController();
             controllerSidebar.setGeneralController(this);
 
-            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            RecetarioController controllerMisRecetas = loaderMisRecetas.getController();
             controllerMisRecetas.setUser(usuario);
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
@@ -181,11 +181,11 @@ public class GeneralController {
         try {
 
             // cargamos la vista
-            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Recetario.fxml"));
             Parent vista = loaderMisRecetas.load();
 
             // la configuramos
-            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            RecetarioController controllerMisRecetas = loaderMisRecetas.getController();
             controllerMisRecetas.setUser(usuario);
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
 
@@ -350,11 +350,11 @@ public class GeneralController {
         try {
 
             // cargamos la vista
-            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/MisRecetas.fxml"));
+            FXMLLoader loaderMisRecetas = new FXMLLoader(getClass().getResource("/cookcloud/vista/fxml/Recetario.fxml"));
             Parent vista = loaderMisRecetas.load();
 
             // la configuramos
-            MisRecetasController controllerMisRecetas = loaderMisRecetas.getController();
+            RecetarioController controllerMisRecetas = loaderMisRecetas.getController();
             controllerMisRecetas.setUser(usuario);
             controllerMisRecetas.setControllerYCargarMisRecetas(this);
             controllerMisRecetas.cargarRecetasGuardadas();

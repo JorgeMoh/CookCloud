@@ -1,5 +1,6 @@
 * {
     -fx-font-family: "Monserrat";
+    -fx-font-smoothing-type: lcd;
 }
 
 /* Fondo principal */

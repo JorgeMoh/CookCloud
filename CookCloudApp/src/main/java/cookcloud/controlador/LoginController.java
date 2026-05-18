@@ -67,12 +67,12 @@ public class LoginController {
             errUser.setText("Usuario o contraseña incorrectars");
 
             // En caso de que estén rellenos comprobamos si hay un usuario con ese nombre de usuario
-            if (userService.comprobarNombreUser(tfUser.getText())){
+            if (userService.comprobarNombreOEmailUser(tfUser.getText())){
 
                 vbErrorGen.getChildren().remove(errUser);
 
                 // Buscamos al usuario y lo guardamos
-                Usuario user = userService.buscarUsuarioPorNombre(tfUser.getText());
+                Usuario user = userService.buscarUsuarioPorNombreOCorreo(tfUser.getText());
 
                 // Si la contraseña coincide se inicia sesión
                 if (UtilsPass.verificarPass(tfPass.getText(),user.getPassw())){

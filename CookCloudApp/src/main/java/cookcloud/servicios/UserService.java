@@ -51,6 +51,28 @@ public class UserService {
     }
 
     /**
+     * Metodo que comprueba si ya existe un usuario con ese nombre de usuario en la BDD
+     * @param nombre nombre que queremos comprobar
+     * @return devuelve true si ya existe y false si no
+     */
+    public boolean comprobarNombreOEmailUser(String nombre) {
+
+        EntityManager em = UtilsBD.getEntity();
+
+        try {
+            Long coincidencias = em.createQuery("SELECT COUNT(s) FROM Usuario s WHERE s.usuario = :valor OR s.email = :valor", Long.class)
+                    .setParameter("valor", nombre)
+                    .getSingleResult();
+
+            return coincidencias > 0;
+
+        }finally {
+            em.close();
+        }
+
+    }
+
+    /**
      * Metodo que sube a la base de datos un nuevo usuario usando los parámetros que le pasamos
      * @param user Usuario que queremos registrar
      */
@@ -80,15 +102,15 @@ public class UserService {
      * @param usuario nombre del usuario a buscar
      * @return devuelve un objeto de la clase usuario
      */
-    public Usuario buscarUsuarioPorNombre(String usuario) {
+    public Usuario buscarUsuarioPorNombreOCorreo(String usuario) {
 
         EntityManager em = UtilsBD.getEntity();
 
         try{
 
             // buscamos y guardamos el usuario
-            Usuario s = em.createQuery("FROM Usuario s WHERE s.usuario = :nombre", Usuario.class)
-                    .setParameter("nombre", usuario).getSingleResult();
+            Usuario s = em.createQuery("FROM Usuario s WHERE s.usuario = :valor OR s.email = :valor", Usuario.class)
+                    .setParameter("valor", usuario).getSingleResult();
 
             return s; // devolvemos a ese usuario
 

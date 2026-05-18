@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecetasCreadasController {
@@ -16,7 +15,7 @@ public class RecetasCreadasController {
     @FXML
     public FlowPane fpRecetas;
 
-    private MisRecetasController misRecetasController;
+    private RecetarioController recetarioController;
     private GeneralController generalController;
 
     private RecipeService recipeService = new RecipeService();
@@ -53,8 +52,8 @@ public class RecetasCreadasController {
 
     }
 
-    public void setControlador(MisRecetasController misRecetasController) {
-        this.misRecetasController = misRecetasController;
+    public void setControlador(RecetarioController recetarioController) {
+        this.recetarioController = recetarioController;
     }
 
     public void setControladorBackground(GeneralController generalController) {

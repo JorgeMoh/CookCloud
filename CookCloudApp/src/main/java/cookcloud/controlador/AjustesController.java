@@ -112,7 +112,15 @@ public class AjustesController {
             // Muestra un mensaje de error en caso de que la contraseña no coincida con el patron: 8 caracteres, 1 mayúscula y 1 número
         } else if (!tfNuevaPass.getText().matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
 
-            errNewPass.setText("Contraseña debe tener 8 caracteres(1 mayúscula y 1 numero)");
+            errNewPass.setText("Contraseña debe tener minimo 8 caracteres(1 mayúscula y 1 numero)");
+            vbNewPass.getChildren().remove(errNewPass);
+            vbNewPass.getChildren().add(errNewPass);
+            valido = false;
+
+            // Comprobamos que no sea la misma contraseña que ya tiene
+        } else if (UtilsPass.verificarPass(tfNuevaPass.getText(), user.getPassw())) {
+
+            errNewPass.setText("No puedes usar tu contraseña actual");
             vbNewPass.getChildren().remove(errNewPass);
             vbNewPass.getChildren().add(errNewPass);
             valido = false;

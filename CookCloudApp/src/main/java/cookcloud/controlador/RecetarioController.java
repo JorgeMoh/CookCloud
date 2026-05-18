@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
-public class MisRecetasController {
+public class RecetarioController {
 
     @FXML
     public BorderPane bpLayaut;

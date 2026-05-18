@@ -14,7 +14,7 @@ public class RecetasGuardadasController {
     @FXML
     public FlowPane fpRecetas;
 
-    private MisRecetasController misRecetasController;
+    private RecetarioController recetarioController;
     private GeneralController generalController;
     private RecipeService recipeService = new RecipeService();
 
@@ -31,19 +31,22 @@ public class RecetasGuardadasController {
         // las muestra en el componente personalizado
         for (Receta receta : recetasGuardadas) {
 
-            TarjetaReceta tarjetaReceta = new TarjetaReceta(receta);
-            tarjetaReceta.setOnMouseClicked(e -> {
-                generalController.cargarVistaRecetaPublica(receta,false);
-            });
+            if (receta.isPublica()){
+                TarjetaReceta tarjetaReceta = new TarjetaReceta(receta);
+                tarjetaReceta.setOnMouseClicked(e -> {
+                    generalController.cargarVistaRecetaPublica(receta,false);
+                });
+                tarjetaReceta.mostrarCreador();
 
-            fpRecetas.getChildren().add(tarjetaReceta);
+                fpRecetas.getChildren().add(tarjetaReceta);
+            }
 
         }
 
     }
 
-    public void setMisRecetasContoller(MisRecetasController misRecetasController) {
-        this.misRecetasController = misRecetasController;
+    public void setMisRecetasContoller(RecetarioController recetarioController) {
+        this.recetarioController = recetarioController;
     }
 
     public void setGenenralController(GeneralController generalController) {

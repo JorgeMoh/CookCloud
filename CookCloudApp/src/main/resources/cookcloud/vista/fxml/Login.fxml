@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cookcloud.controlador.LoginController"
       spacing="15" alignment="CENTER">
 
@@ -10,10 +12,14 @@
         <Insets bottom="10.0" left="10.0" right="10.0" top="2.0"/>
     </padding>
 
+    <ImageView fitWidth="200" fitHeight="140" smooth="false">
+        <Image url="/cookcloud/data/CookCloud_Logo_Texto.png"/>
+    </ImageView>
+
     <!--  CAMPO USUARIO  -->
     <VBox fx:id="vbUser">
         <Label text="Usuario:"/>
-        <TextField fx:id="tfUser" promptText="Usuario..."/>
+        <TextField fx:id="tfUser" promptText="Usuario/Correo..."/>
     </VBox>
 
     <!--  CAMPO CONTRASEÑA  -->

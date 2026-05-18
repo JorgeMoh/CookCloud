@@ -19,11 +19,11 @@
     <Separator/>
 
     <!--  BOTONES DE NAVEGACIÓN  -->
-    <Button text="Mis recetas" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
+    <Button text="Recetario" onAction="#mostrarMisRecetas" styleClass="btSelect" fx:id="btMisrecetas"/>
 
     <Button text="Explorar" onAction="#mostrarExplorador" fx:id="btBuscar"/>
 
-    <Button text="Ajustes" onAction="#mostrarAjustes" fx:id="btAjustes"/>
+    <Button text="Cuenta" onAction="#mostrarAjustes" fx:id="btAjustes"/>
 
     <Separator/>
 

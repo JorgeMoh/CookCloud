@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="bpLayaut"
-            fx:controller="cookcloud.controlador.MisRecetasController" stylesheets="/cookcloud/vista/css/MisRecetas.css">
+            fx:controller="cookcloud.controlador.RecetarioController" stylesheets="/cookcloud/vista/css/MisRecetas.css">
 
     <!--  SECCIÓN SUPERIOR  -->
     <top>
